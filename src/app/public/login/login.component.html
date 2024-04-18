@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center">
+  <img class="background" src="assets/images/login-background.webp" />
+   <div class="card login">
+     <div class="card-body">
+
+        <div class="d-flex justify-content-center logo">
+          <img src="assets/images/allset-logo.webp" alt="Allset - Automação Industrial"/>
+        </div>
+
+        <form [formGroup]="form">
+          <div class="email-field">
+            <input type="email" class="form-control" placeholder="Email"  formControlName="email" />
+          </div>
+
+          <div>
+            <input type="password" class="form-control" placeholder="Senha"  formControlName="password" />
+          </div>
+        </form>
+
+        <div class="login-button d-flex justify-content-center">
+          <button type="submit" class="btn btn-outline-primary btn-lg" (click)="login()">Login</button>
+        </div>
+
+    </div>
+  </div>
+</div>
