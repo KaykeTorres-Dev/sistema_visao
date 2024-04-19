@@ -1,19 +1,39 @@
 <div class="container d-flex justify-content-center">
   <img class="background" src="assets/images/login-background.webp" />
    <div class="card login">
-     <div class="card-body">
+     <div class="card-body card-shadow">
 
         <div class="d-flex justify-content-center logo">
-          <img src="assets/images/allset-logo.webp" alt="Allset - Automação Industrial"/>
+          <a href="https://allset.com.br/produtos/" target="_blank">
+            <img src="assets/images/allset-logo.webp" alt="Allset - Automação Industrial"/>
+          </a>
         </div>
 
         <form [formGroup]="form">
           <div class="email-field">
             <input type="email" class="form-control" placeholder="Email"  formControlName="email" />
+            <div class="invalid-feedback" *ngIf="form.get('email')?.errors?.['required']">Preencha o email.</div>
           </div>
 
-          <div>
-            <input type="password" class="form-control" placeholder="Senha"  formControlName="password" />
+          <div class="input-group mb-3">
+            <div *ngIf="passwordShow" class="col-11">
+              <input type="text" class="form-control" placeholder="Senha"  formControlName="password"/>
+            </div>
+
+            <div *ngIf="!passwordShow" class="col-11">
+              <input type="password" class="form-control" placeholder="Senha"  formControlName="password"/>
+            </div>
+
+            <div class="input-group-append show-password">
+              <button class="btn btn-outline-secondary" type="button" (click)="togglePassword()">
+                <a *ngIf="passwordShow">
+                  <i class="bi bi-eye"></i>
+                </a>
+                <a *ngIf="!passwordShow">
+                  <i class="bi bi-eye-slash"></i>
+                </a>
+              </button>
+            </div>
           </div>
         </form>
 
