@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-imagens-aprovadas',
   standalone: true,
   imports: [DashboardComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './imagens-aprovadas.component.html',
+  styleUrl: './imagens-aprovadas.component.scss'
 })
-export class HomeComponent {
+export class ImagensAprovadasComponent {
 
 }
