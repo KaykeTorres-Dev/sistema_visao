@@ -1,4 +1,5 @@
 <app-dashboard></app-dashboard>
+<app-scroll-to-top-button></app-scroll-to-top-button>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">Imagens Aprovadas</h1>
@@ -15,11 +16,9 @@
         <img class="card-img-top" src="{{imagem.imagePath}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title image-view mb-3">{{imagem.titulo}}</h5>
-          <!-- <a class="btn btn-primary image-view" (click)="viewImage()">Ver imagem</a> -->
           <app-modal class="image-view"></app-modal>
           <p class="card-text"><small class="text-muted d-flex justify-content-center mt-4">Foto tirada há 3 minutos atrás</small></p>
         </div>
       </div>
     </div>
-
   </main>

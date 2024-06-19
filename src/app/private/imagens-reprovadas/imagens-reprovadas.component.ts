@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from '../shared/modal/modal.component';
+import { ScrollToTopButtonComponent } from '../shared/scroll-to-top-button/scroll-to-top-button.component';
 
 @Component({
   selector: 'app-imagens-reprovadas',
   standalone: true,
-  imports: [DashboardComponent, CommonModule, ModalComponent],
+  imports: [DashboardComponent, CommonModule, ModalComponent, ScrollToTopButtonComponent],
   templateUrl: './imagens-reprovadas.component.html',
   styleUrl: './imagens-reprovadas.component.scss'
 })
