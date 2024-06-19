@@ -10,4 +10,16 @@
       </div>
     </div>
 
+    <div class="card-deck">
+      <div class="card align-cards" style="width: 20rem;" *ngFor="let imagem of imagensAprovadas; let i = index">
+        <img class="card-img-top" src="{{imagem.imagePath}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title image-view mb-3">{{imagem.titulo}}</h5>
+          <!-- <a class="btn btn-primary image-view" (click)="viewImage()">Ver imagem</a> -->
+          <app-modal class="image-view"></app-modal>
+          <p class="card-text"><small class="text-muted d-flex justify-content-center mt-4">Foto tirada há 3 minutos atrás</small></p>
+        </div>
+      </div>
+    </div>
+
   </main>
