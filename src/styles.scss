@@ -1,4 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+.allset-color-outline {
+  border-color: #305977;
+  color: #305977;
+}
+
+.allset-color-outline:hover {
+  background-color: #305977;
+}
+
+.allset-color-inline {
+  background-color: #2e6c99;
+}
+
+.allset-color-inline:hover {
+  background-color: #305977;
+}

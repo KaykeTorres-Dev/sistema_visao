@@ -24,16 +24,22 @@ export class ScrollToTopButtonComponent {
     }
   } 
   
+  
   scrollToTop() {
-    (function smoothscroll() {
-
-      var currentScroll = document.documentElement.scrollTop || document.body.scrollTop; 
-      
-      if (currentScroll > 0) {
-        window.requestAnimationFrame(smoothscroll);
-        window.scrollTo(0, currentScroll - (currentScroll / 8));
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    var speed = 50;
+  
+    function animate() {
+      if (scrollTop > 0) {
+        scrollTop -= speed;
+        speed *= 0.9;
+        window.scrollTo(0, scrollTop);
+        setTimeout(animate, 10);
+      } else {
+        window.scrollTo(0, 0);
       }
-
-    })();
+    }
+  
+    animate();
   }
 }
