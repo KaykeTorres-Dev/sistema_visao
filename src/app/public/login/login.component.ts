@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastService } from '../../toast/toast.service';
+import { AuthServiceService } from '../../services/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private authService: AuthServiceService
   ) {}
 
   //TODO: Fazer a validação dos campos visualmente
@@ -32,8 +33,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const emailValue = 'admin@admin.com';
-    const passwordValue = '321321';
+    const adminEmail = 'admin@admin.com';
+    const adminPassword = '321321';
+    const email = this.form.get('email')?.value;
+    const password = this.form.get('password')?.value;
+
+
 
     if (this.form.get('email')?.value == null && this.form.get('password')?.value == null || this.form.get('email')?.value == "" && this.form.get('password')?.value == "") {
       this.toastService.showDanger('Preencha todos os campos!');
@@ -47,13 +52,8 @@ export class LoginComponent implements OnInit {
       this.toastService.showDanger('Preencha a senha');
       return;
     }
-      
-    if (this.form.get('email')?.value == emailValue && this.form.get('password')?.value == passwordValue) {
-      this.toastService.showSuccess('Login efetuado com sucesso');
-      this.router.navigate(['home']);
-    } else {
-      this.toastService.showDanger('Login inválido!');
-    }
+
+    this.authService.login(adminEmail, adminPassword, email, password);
   }
 
   togglePassword() {
