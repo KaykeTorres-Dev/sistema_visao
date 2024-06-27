@@ -1,78 +1,127 @@
 <header class="navbar navbar-dark sticky-top flex-md-nowrap p-0 shadow home-header">
-    <a href="/home">
-        <img class="logo-header" src="assets/images/logo-header.webp" alt="Allset - Automação Industrial"/>
-      </a>
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-nav">
-      <div class="nav-item text-nowrap">
-        <a class="nav-link px-3" href="/">Sair</a>
-      </div>
-    </div>
-  </header>
+  <a href="/home">
+    <img class="logo-header" src="assets/images/logo-header.webp" alt="Allset - Automação Industrial"/>
+  </a>
+
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
   
-  <div class="container-fluid">
-    <div class="row">
-      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-        <div class="position-sticky pt-3">
-          <ul class="nav flex-column">
-            <li class="nav-item" [ngClass]="{'selected':router.url === '/home'}">
-              <a class="nav-link" routerLink="/home">
-                <i class="bi bi-house"></i>
-                Geral
-              </a>
-            </li>
-            <li class="nav-item" [ngClass]="{'selected':router.url === '/imagens-aprovadas'}">
-              <a class="nav-link" routerLink="/imagens-aprovadas">
-                <i class="bi bi-check-square"></i>
-                Imagens Aprovadas
-              </a>
-            </li>
-            <li class="nav-item" [ngClass]="{'selected':router.url === '/imagens-reprovadas'}">
-              <a class="nav-link" routerLink="/imagens-reprovadas">
-                <i class="bi bi-ban"></i>
-                Imagens Reprovadas
-              </a>
-            </li>
-          </ul>
-  
-          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Salvos</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-              <span data-feather="plus-circle"></span>
-            </a>
-          </h6>
-          <ul class="nav flex-column mb-2">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Current month
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Last quarter
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Social engagement
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file-text"></span>
-                Year-end sale
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="/">Sair</a>
     </div>
   </div>
-  
-  
-    
+
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <div class="flex-shrink-0 p-3">
+
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                Home
+              </button>
+              <div class="collapse" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/home">Geral</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos">Produtos</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                Produtos
+              </button>
+              <div class="collapse" id="dashboard-collapse">
+
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/quantificacao-de-garrafas-em-engradados">Quantificação de garrafas em engradados</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/verificacao-de-rosca-interna-e-externa">Verificação de rosca interna e externa</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/qualidade-e-medicao-de-pneus">Qualidade e medição de pneus</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/medicao-de-volume-em-processo-continuo">Medição de volume em processo contínuo</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos">Controle de qualidade na fabricação de biscoitos</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto">Inspeção de rótulos, tampas e nível de produto</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/conferencia-de-embalagens">Conferência de embalagens</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas">Indentificação de irregularidades em bocal ou tampas</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/leitor-de-caracteres-em-qualquer-material">Leitor de caracteres em qualquer material</a>
+                  </li>
+
+                  <li>
+                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/maquina-de-cubagem-pesagem-e-identificacao">Máquina de cubagem, pesagem e identificação</a>
+                  </li>
+
+                </ul>
+              </div>
+            </li>
+
+            <li class="mb-1">
+              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                Allset
+              </button>
+              <div class="collapse" id="orders-collapse">
+
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a href="https://allset.com.br/nossa-empresa/valores/" target="_blank" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Valores</a>
+                  </li>
+
+                  <li>
+                    <a href="https://allset.com.br/nossa-empresa/como-trabalhamos/" target="_blank" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Como trabalhamos</a>
+                  </li>
+
+                  <li>
+                    <a href="https://allset.com.br/clientes/" target="_blank" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Clientes</a>
+                  </li>
+
+                  <li>
+                    <a href="https://allset.com.br/contato-e-localizacao/" target="_blank" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Contato</a>
+                  </li>
+                </ul>
+
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
