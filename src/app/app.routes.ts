@@ -15,6 +15,7 @@ import { MedicaoDeVolumeComponent } from './private/lista-produtos/medicao-de-vo
 import { QualidadeEMedicaoDePneusComponent } from './private/lista-produtos/qualidade-e-medicao-de-pneus/qualidade-e-medicao-de-pneus.component';
 import { QuantificacaoDeGarrafasComponent } from './private/lista-produtos/quantificacao-de-garrafas/quantificacao-de-garrafas.component';
 import { VerificacaoDeRoscaComponent } from './private/lista-produtos/verificacao-de-rosca/verificacao-de-rosca.component';
+import { FeedbackComponent } from './private/feedback/feedback/feedback.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,7 @@ export const routes: Routes = [
   { path: 'produtos/maquina-de-cubagem-pesagem-e-identificacao', component: MaquinaDeCubagemPesagemEIdentificacaoComponent },
   { path: 'imagens-aprovadas', component: ImagensAprovadasComponent },
   { path: 'imagens-reprovadas', component: ImagensReprovadasComponent },
+  { path: 'feedback', component: FeedbackComponent },
   {
     path: '**',
     redirectTo: '/login',
