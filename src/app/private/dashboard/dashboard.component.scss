@@ -47,8 +47,8 @@ body {
   }
 
   .selected {
-    color: #2470dc;
     background-color: gray;
+    border-radius: var(--bs-border-radius) !important;
   }
   
   .sidebar .nav-link .feather {
