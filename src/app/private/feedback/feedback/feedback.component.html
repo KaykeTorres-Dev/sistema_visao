@@ -1,7 +1,118 @@
 <app-dashboard></app-dashboard>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h1 class="h2">Feedback</h1>
-    </div>
+    
+  <div class="header-image position-relative overflow-hidden m-md-3 text-center bg-body-tertiary">
+    <h1 class="display-3 fw-bold">Feedback</h1>
+    <h3 class="fw-normal text-muted mb-3"></h3>
+  </div>
 
+    <div class="container">
+      <form [formGroup]="form">
+
+        <div class="form-floating mb-4">
+          <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com" formControlName="email">
+          <label for="floatingInputEmail">Email*</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="text" class="form-control" id="floatingInputText" placeholder="text" formControlName="empresa">
+          <label for="floatingInputText">Empresa*</label>
+        </div>
+
+        <div class="mt-4">
+          <label class="form-label">Em quais âmbitos você acha que devemos melhorar?*</label>
+        </div>
+  
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="atendimento" formControlName="atendimento" 
+            (click)="onAreaFeedbackChange(this.form.get('atendimento'))">
+          <label class="form-check-label" for="atendimento">Atendimento</label>
+        </div>
+  
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="comunicação"  formControlName="comunicação"
+            (click)="onAreaFeedbackChange(this.form.get('comunicação'))">
+          <label class="form-check-label" for="comunicação">Comunicação</label>
+        </div>
+  
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="planejamento" formControlName="planejamento"
+            (click)="onAreaFeedbackChange(this.form.get('planejamento'))">
+          <label class="form-check-label" for="planejamento">Planejamento</label>
+        </div>
+  
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="suporte" formControlName="suporte"
+            (click)="onAreaFeedbackChange(this.form.get('suporte'))">
+          <label class="form-check-label" for="suporte">Suporte</label>
+        </div>
+        
+
+        <div class="form-floating mb-4 mt-4">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="comentario"></textarea>
+          <label for="floatingTextarea">Deixe seu comentário aqui</label>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <div>
+            <label for="customRange2" class="form-label">O quão satisfeito você está com nossos serviços?*</label>
+          </div>
+          
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao1" value="1" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao2" value="2" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao3" value="3" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao4" value="4" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao5" value="5" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao6" value="6" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio6">6</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao7" value="7" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio7">7</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao"id="avaliacao8" value="8" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio8">8</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao9" value="9" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio9">9</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao10" value="10" formControlName="avaliacao">
+            <label class="form-check-label" for="inlineRadio10">10</label>
+          </div>
+        </div>
+       
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary allset-color-inline" (click)="sendFeedback(this.form.value)">Enviar</button>
+        </div>
+  
+      </form> 
+    </div>
   </main>
