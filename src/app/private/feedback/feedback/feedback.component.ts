@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class FeedbackComponent implements OnInit {
   form!: FormGroup;
+  isOptionSelected: boolean = false;
   
   constructor(
     private fb: FormBuilder,
@@ -28,36 +29,25 @@ export class FeedbackComponent implements OnInit {
       empresa: new FormControl (null, Validators.required),
       comentario: new FormControl (null),
       avaliacao: new FormControl (null,  Validators.required),
-      atendimento: new FormControl (false, Validators.required),
-      comunicação: new FormControl (false,  Validators.required),
-      planejamento: new FormControl (false,  Validators.required),
-      suporte: new FormControl (false, Validators.required)
+      atendimento: new FormControl (false),
+      comunicacao: new FormControl (false),
+      planejamento: new FormControl (false),
+      suporte: new FormControl (false)
     });
   }
 
-  onAreaFeedbackChange(form: any) {
-    const atendimentoControl = this.form.get('atendimento');
-    const comunicaçãoControl = this.form.get('comunicação');
-    const planejamentoControl = this.form.get('planejamento');
-    const suporteControl = this.form.get('suporte');
-
-    form.valueChanges.subscribe((value: boolean) => {
-      debugger
-      if (value !== false) {
-        atendimentoControl?.removeValidators(Validators.required);
-        comunicaçãoControl?.removeValidators(Validators.required);
-        planejamentoControl?.removeValidators(Validators.required);
-        suporteControl?.removeValidators(Validators.required);
-      } 
-    });
+  onAreaFeedbackChange(optionValue: any) {
+    if (optionValue == true) {
+      optionValue = false;
+    } else if (optionValue == false) {
+      optionValue = true;
+    }
+    this.isOptionSelected = optionValue;
   }
 
   
-  sendFeedback(form: FormControl) {
-    console.log('controles do form', this.form.controls);
-    console.log('form', form);
-
-    if (!this.form.valid) {
+  sendFeedback() {
+    if (!this.form.valid || this.isOptionSelected !== true) {
       this.toastService.showDanger('Formulário Inválido!');
     } else {
       this.toastService.showSuccess('Feedback enviado com sucesso!');
