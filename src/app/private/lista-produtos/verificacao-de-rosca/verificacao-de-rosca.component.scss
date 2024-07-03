@@ -12,10 +12,12 @@
   }
   
   .header-image {
-    background-image: url("/assets/images/verificacao-de-rosca.webp");
+    background-image: url("/assets/images/verificacao-de-rosca2.jpg");
     border-radius: 5px 5px 5px 5px;
     height: 206px;
-    padding-top: 27px;
+    padding-top: 60px;
+    background-size: cover;
+    background-position-y: center;
   }
 
   .product-image {
@@ -50,7 +52,6 @@
   
   h1 {
     color: white;
-    margin-top: 37px;
   }
   
   .btn-1 {

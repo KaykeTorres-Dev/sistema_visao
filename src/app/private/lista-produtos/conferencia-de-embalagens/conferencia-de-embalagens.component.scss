@@ -12,10 +12,12 @@
   }
 
   .header-image {
-    background-image: url("/assets/images/conferencia-de-embalagens.webp");
+    background-image: url("/assets/images/conferencia-de-embalagens2.webp");
     border-radius: 5px 5px 5px 5px;
     height: 206px;
     padding-top: 27px;
+    background-size: cover;
+    background-position-x: center;
   }
 
   .product-image {

@@ -12,10 +12,12 @@
   }
   
   .header-image {
-    background-image: url("/assets/images/leitor-de-caracteres.webp");
+    background-image: url("/assets/images/leitor-de-caracteres2.webp");
     border-radius: 5px 5px 5px 5px;
     height: 206px;
     padding-top: 27px;
+    background-size: cover;
+    background-position-y: center;
   }
 
   .product-image {
