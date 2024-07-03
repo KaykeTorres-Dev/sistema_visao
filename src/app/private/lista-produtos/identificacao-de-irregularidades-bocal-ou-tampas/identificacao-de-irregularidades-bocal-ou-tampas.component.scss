@@ -1,0 +1,76 @@
+.container {
+    max-width: 960px;
+  }
+  
+  .flex-equal > * {
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      flex: 1;
+    }
+  }
+  
+  .header-image {
+    background-image: url("/assets/images/identificacao-de-irregularidades.webp");
+    border-radius: 5px 5px 5px 5px;
+    height: 206px;
+    padding-top: 27px;
+  }
+
+  .product-image {
+    background-size: 95%;
+    background-position-x: center;
+    background-position-y: center;
+  }
+  
+  .product1 {
+    background-image: url("/assets/images/unilever-logo.webp");
+  }
+  
+  .product2 {
+    background-image: url("/assets/images/nestle-logo.webp");
+  }
+  
+  .product3 {
+    background-image: url("/assets/images/vibra-logo.png");
+  }
+  
+  .product4 {
+    background-image: url("/assets/images/p&g-logo.jpeg");
+  }
+  
+  .product5 {
+    background-image: url("/assets/images/bunge-logo.png");
+  }
+  
+  .product6 {
+    background-image: url("/assets/images/benteler-logo.jpg");
+  }
+  
+  h1 {
+    color: white;
+  }
+  
+  .btn-1 {
+    margin-top: -38px;
+  }
+  
+  .btn-layout1 {
+    margin-top: -30px;
+  }
+  
+  .btn-6 {
+    margin-top: -28px;
+  }
+  
+  .btn-8 {
+    margin-top: -32px;
+  }
+  
+  .card:hover {
+    transition-duration: 150ms;
+    box-shadow: 0 3px 10px 3px black;
+  }
+  
+  
