@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
   }
 
   togglePassword() {
+    // debugger
     if (this.passwordShow) {
       this.passwordShow = false;
     } else {

@@ -16,6 +16,7 @@ import { QualidadeEMedicaoDePneusComponent } from './private/lista-produtos/qual
 import { QuantificacaoDeGarrafasComponent } from './private/lista-produtos/quantificacao-de-garrafas/quantificacao-de-garrafas.component';
 import { VerificacaoDeRoscaComponent } from './private/lista-produtos/verificacao-de-rosca/verificacao-de-rosca.component';
 import { FeedbackComponent } from './private/feedback/feedback/feedback.component';
+import { CadastroComponent } from './public/cadastro/cadastro.component';
 
 export const routes: Routes = [
   {
@@ -24,6 +25,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'login', component: LoginComponent },
+  { path: 'cadastro', component: CadastroComponent },
   { path: 'home', component: HomeComponent },
   { path: 'produtos', component: ProdutosComponent },
   { path: 'produtos/quantificacao-de-garrafas-em-engradados', component: QuantificacaoDeGarrafasComponent },

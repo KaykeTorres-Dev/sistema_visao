@@ -1,0 +1,43 @@
+.user-form {
+  background-color: #bab2b2;
+  border-radius: 5px 5px 5px 5px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  box-shadow: 4px 4px 13px 0px;
+  margin-top: 50px;
+}
+
+:host {
+  background-color: #305977;
+  display: flex;
+  height: 737px;
+}
+
+h1 {
+  color: white;
+}
+
+.create-user-header {
+  margin-top: 50px;
+}
+
+.form-layout {
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.container-form {
+  width: 50%;
+  margin-left: 330px;
+}
+
+.show-password {
+  top: -72px;
+  float: right;
+  position: relative;
+}
+
+.password-input {
+  width: 92%;
+}
+
