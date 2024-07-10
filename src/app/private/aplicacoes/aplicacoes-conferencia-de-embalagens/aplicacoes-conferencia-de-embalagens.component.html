@@ -1,0 +1,18 @@
+<app-dashboard></app-dashboard>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="header-image position-relative overflow-hidden m-md-3 text-center bg-body-tertiary">
+      <h1 class="display-3 fw-bold">Conferência de embalagens</h1>
+      <h3 class="fw-normal text-muted mb-3"></h3>
+    </div>
+
+    <div class="container">
+
+      <div class="mt-3 mb-3">
+        <img [src]="url" height="200">
+      </div>
+
+      <div class="input-group">
+        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" (change)="selectFile($event)">
+      </div>
+    </div>
+</main>

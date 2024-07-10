@@ -1,24 +1,54 @@
 <app-dashboard></app-dashboard>
 <app-scroll-to-top-button></app-scroll-to-top-button>
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<main class="px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">Imagens Aprovadas</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
-          <button type="button" class="btn btn-sm btn-outline-secondary">Compartilhar</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+          <button type="file" class="btn btn-sm btn-outline-secondary">Adicionar Imagem</button>
         </div>
       </div>
     </div>
 
-    <div class="card-deck">
-      <div class="card align-cards" style="width: 20rem;" *ngFor="let imagem of imagensAprovadas; let i = index">
-        <img class="card-img-top" src="{{imagem.imagePath}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title image-view mb-3">{{imagem.titulo}}</h5>
-          <app-modal class="image-view"></app-modal>
-          <p class="card-text"><small class="text-muted d-flex justify-content-center mt-4">Foto tirada há 3 minutos atrás</small></p>
-        </div>
-      </div>
+    <iframe src="http://192.168.0.15/pages/hmi/" class="teste"></iframe>
+
+    <!-- <div class="input-group">
+      <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" (change)="selectFile($event)">
     </div>
+
+
+    <div *ngIf="urls.length > 0; else approvedImagesEmpty">
+      <div class="card-deck">
+        <div class="card align-cards" style="width: 20rem;" *ngFor="let url of urls; let i = index">
+          <img class="card-img-top" src="{{url.path}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title image-view mb-3">{{url.fileName}}</h5>
+            <app-modal class="image-view" [images]="urls"></app-modal>
+            <p class="card-text"><small class="text-muted d-flex justify-content-center mt-4">{{url.fileCreationData | date: 'short' : '' : 'pt-BR'}}</small></p>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="card-deck">
+        <div class="card align-cards" style="width: 20rem;" *ngFor="let imagem of imagensAprovadas; let i = index">
+          <img class="card-img-top" [src]="url" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title image-view mb-3">{{imagem.titulo}}</h5>
+            <app-modal class="image-view"></app-modal>
+            <p class="card-text"><small class="text-muted d-flex justify-content-center mt-4">Foto tirada há 3 minutos atrás</small></p>
+          </div>
+        </div>
+      </div> -->
+    <!-- </div> -->
+
+    <ng-template #approvedImagesEmpty>
+      <div class="d-flex justify-content-center">
+      <img class="sem-imagem" src="/assets/images/sem-imagem.png">
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <h1 class="h2">Não possui imagens no momento</h1>
+      </div>
+    </ng-template>
+
   </main>

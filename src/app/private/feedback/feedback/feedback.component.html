@@ -1,6 +1,6 @@
 <app-dashboard></app-dashboard>
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    
+<main class="px-md-4">
+
   <div class="header-image position-relative overflow-hidden m-md-3 text-center bg-body-tertiary">
     <h1 class="display-3 fw-bold">Feedback</h1>
     <h3 class="fw-normal text-muted mb-3"></h3>
@@ -22,31 +22,31 @@
         <div class="mt-4">
           <label class="form-label">Em quais âmbitos você acha que devemos melhorar?*</label>
         </div>
-  
+
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="atendimento" formControlName="atendimento" 
+          <input class="form-check-input" type="checkbox" role="switch" id="atendimento" formControlName="atendimento"
             (click)="onAreaFeedbackChange(this.form.get('atendimento')?.value)">
           <label class="form-check-label" for="atendimento">Atendimento</label>
         </div>
-  
+
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="comunicacao"  formControlName="comunicacao"
             (click)="onAreaFeedbackChange(this.form.get('comunicacao')?.value)">
           <label class="form-check-label" for="comunicacao">Comunicação</label>
         </div>
-  
+
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="planejamento" formControlName="planejamento"
             (click)="onAreaFeedbackChange(this.form.get('planejamento')?.value)">
           <label class="form-check-label" for="planejamento">Planejamento</label>
         </div>
-  
+
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="suporte" formControlName="suporte"
             (click)="onAreaFeedbackChange(this.form.get('suporte')?.value)">
           <label class="form-check-label" for="suporte">Suporte</label>
         </div>
-        
+
 
         <div class="form-floating mb-4 mt-4">
           <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="comentario"></textarea>
@@ -57,7 +57,7 @@
           <div>
             <label for="customRange2" class="form-label">O quão satisfeito você está com nossos serviços?*</label>
           </div>
-          
+
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao1" value="1" formControlName="avaliacao">
             <label class="form-check-label" for="inlineRadio1">1</label>
@@ -108,11 +108,11 @@
             <label class="form-check-label" for="inlineRadio10">10</label>
           </div>
         </div>
-       
+
         <div class="d-flex justify-content-center">
           <button class="btn btn-primary allset-color-inline" (click)="sendFeedback()">Enviar</button>
         </div>
-  
-      </form> 
+
+      </form>
     </div>
   </main>

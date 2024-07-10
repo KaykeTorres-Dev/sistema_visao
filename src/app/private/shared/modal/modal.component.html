@@ -1,20 +1,19 @@
-<button type="button" class="btn btn-outline-primary allset-color-outline" data-bs-toggle="modal" data-bs-target="#myModal">Ver Imagem</button>
-  
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-  
-        <!-- Modal Header -->
-        <div class="header">
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-  
-        <!-- Modal body -->
-        <div class="modal-body">
-            <img class="image-view" src="assets/camera-images/aprovadas/image1.bmp" alt="">
-        </div>
-  
+<button type="button" class="btn btn-outline-primary allset-color-outline" data-bs-toggle="modal" data-bs-target="#myModal" (click)="onImageClick(imagesList)">Ver Imagem</button>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal()"></button>
       </div>
+
+      <div class="modal-body" *ngFor="let image of selectedImage; let i = index">
+        <img class="image-view" src="{{selectedImage[0]}}" alt="">
+      </div>
+
     </div>
   </div>
+</div>
+
+

@@ -17,6 +17,7 @@ import { QuantificacaoDeGarrafasComponent } from './private/lista-produtos/quant
 import { VerificacaoDeRoscaComponent } from './private/lista-produtos/verificacao-de-rosca/verificacao-de-rosca.component';
 import { FeedbackComponent } from './private/feedback/feedback/feedback.component';
 import { CadastroComponent } from './public/cadastro/cadastro.component';
+import { AplicacoesConferenciaDeEmbalagensComponent } from './private/aplicacoes/aplicacoes-conferencia-de-embalagens/aplicacoes-conferencia-de-embalagens.component';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,7 @@ export const routes: Routes = [
   { path: 'produtos/identificacao-de-irregularidades-em-bocal-ou-tampas', component: IdentificacaoDeIrregularidadesBocalOuTampasComponent },
   { path: 'produtos/leitor-de-caracteres-em-qualquer-material', component: LeitorDeCaracteresComponent },
   { path: 'produtos/maquina-de-cubagem-pesagem-e-identificacao', component: MaquinaDeCubagemPesagemEIdentificacaoComponent },
+  { path: 'aplicacoes/conferencia-de-embalagens', component: AplicacoesConferenciaDeEmbalagensComponent },
   { path: 'imagens-aprovadas', component: ImagensAprovadasComponent },
   { path: 'imagens-reprovadas', component: ImagensReprovadasComponent },
   { path: 'feedback', component: FeedbackComponent },
