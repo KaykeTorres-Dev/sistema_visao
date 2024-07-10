@@ -1,5 +1,5 @@
 .selected {
-  background-color: gray;
+  color: #2ea3f2;
   border-radius: var(--bs-border-radius) !important;
 }
 
@@ -12,7 +12,7 @@
   width: 16%;
 }
 
-a {
+a, h5 {
   color: white;
 }
 
@@ -21,4 +21,8 @@ nav {
   z-index: 1000;
   top: 0;
   width: 100%;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
 }

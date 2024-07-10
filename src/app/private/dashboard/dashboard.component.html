@@ -5,12 +5,10 @@
     <div id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Home
-          </button>
+          <h5 class="dropdown-toggle" [ngClass]="{'selected':router.url === '/home' || router.url ===  '/ produtos'}">Home</h5>
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" routerLink="/home">Geral</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos">Produtos</a></li>
+            <li><a class="dropdown-item" routerLink="/home" [ngClass]="{'selected':router.url === '/home'}">Geral</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos" [ngClass]="{'selected':router.url === '/produtos'}">Produtos</a></li>
           </ul>
         </li>
       </ul>
@@ -19,21 +17,23 @@
     <div id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Produtos
-          </button>
+
+          <h5 class="dropdown-toggle" [ngClass]="{'selected':router.url === '/produtos' || router.url === '/produtos/quantificacao-de-garrafas-em-engradados' || router.url === '/produtos/verificacao-de-rosca-interna-e-externa' || router.url === '/produtos/qualidade-e-medicao-de-pneus' || router.url === '/produtos/medicao-de-volume-em-processo-continuo' || router.url === '/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos' || router.url === '/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto' || router.url === '/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas' ||
+          router.url === '/produtos/conferencia-de-embalagens' || router.url === '/produtos/leitor-de-caracteres-em-qualquer-material' || router.url === '/produtos/maquina-de-cubagem-pesagem-e-identificacao'}">Produtos</h5>
+
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item"  routerLink="/produtos/quantificacao-de-garrafas-em-engradados">Quantificação de garrafas em engradados</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/verificacao-de-rosca-interna-e-externa">Verificação de rosca interna e externa</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/qualidade-e-medicao-de-pneus">Qualidade e medição de pneus</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/medicao-de-volume-em-processo-continuo">Medição de volume em processo contínuo</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos">Controle de qualidade na fabricação de biscoitos</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto">Inspeção de rótulos, tampas e nível de produto</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/conferencia-de-embalagens">Conferência de embalagens</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas">Identificação de irregularidades em bocal ou tampas</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/leitor-de-caracteres-em-qualquer-material">Leitor de caracteres em qualquer material</a></li>
-            <li><a class="dropdown-item" routerLink="/produtos/maquina-de-cubagem-pesagem-e-identificacao">Máquina de cubagem, pesagem e identificação</a></li>
+            <li><a class="dropdown-item"  routerLink="/produtos/quantificacao-de-garrafas-em-engradados" [ngClass]="{'selected':router.url === '/produtos/quantificacao-de-garrafas-em-engradados'}">Quantificação de garrafas em engradados</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/verificacao-de-rosca-interna-e-externa" [ngClass]="{'selected':router.url === '/produtos/verificacao-de-rosca-interna-e-externa'}">Verificação de rosca interna e externa</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/qualidade-e-medicao-de-pneus" [ngClass]="{'selected':router.url === '/produtos/qualidade-e-medicao-de-pneus'}">Qualidade e medição de pneus</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/medicao-de-volume-em-processo-continuo" [ngClass]="{'selected':router.url === '/produtos/medicao-de-volume-em-processo-continuo'}">Medição de volume em processo contínuo</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos" [ngClass]="{'selected':router.url === '/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos'}">Controle de qualidade na fabricação de biscoitos</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto" [ngClass]="{'selected':router.url === '/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto'}">Inspeção de rótulos, tampas e nível de produto</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/conferencia-de-embalagens" [ngClass]="{'selected':router.url === '/produtos/conferencia-de-embalagens'}">Conferência de embalagens</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas" [ngClass]="{'selected':router.url === '/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas'}">Identificação de irregularidades em bocal ou tampas</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/leitor-de-caracteres-em-qualquer-material" [ngClass]="{'selected':router.url === '/produtos/leitor-de-caracteres-em-qualquer-material'}">Leitor de caracteres em qualquer material</a></li>
+            <li><a class="dropdown-item" routerLink="/produtos/maquina-de-cubagem-pesagem-e-identificacao" [ngClass]="{'selected':router.url === '/produtos/maquina-de-cubagem-pesagem-e-identificacao'}">Máquina de cubagem, pesagem e identificação</a></li>
           </ul>
+
         </li>
       </ul>
     </div>
@@ -41,9 +41,7 @@
     <div id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            Allset
-          </button>
+          <h5 class="dropdown-toggle">Allset</h5>
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="https://allset.com.br/nossa-empresa/valores/" target="_blank">Valores</a></li>
             <li><a class="dropdown-item" href="https://allset.com.br/nossa-empresa/como-trabalhamos/" target="_blank">Como trabalhamos</a></li>
@@ -61,213 +59,3 @@
     </div>
   </div>
 </nav>
-
-<!-- <div class="container-fluid">
-  <div class="row">
-
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="position-sticky pt-3">
-        <div class="flex-shrink-0 p-3">
-
-          <ul class="list-unstyled ps-0">
-            <li class="mb-1">
-              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                Home
-              </button>
-              <div class="collapse show" id="home-collapse" *ngIf="router.url === '/home' || router.url === '/produtos'; else hideHomeSidemenu">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/home" [ngClass]="{'selected':router.url === '/home'}">Geral</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos" [ngClass]="{'selected':router.url === '/produtos'}">Produtos</a>
-                  </li>
-                </ul>
-              </div>
-
-              <ng-template #hideHomeSidemenu>
-                <div class="collapse" id="home-collapse">
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li [ngClass]="{'selected':router.url === '/home'}">
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/home">Geral</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos" [ngClass]="{'selected':router.url === '/produtos'}">Produtos</a>
-                    </li>
-                  </ul>
-                </div>
-              </ng-template>
-            </li>
-
-            <li class="mb-1">
-              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                Produtos
-              </button>
-
-              <div class="collapse show" id="dashboard-collapse" *ngIf="router.url === '/produtos/quantificacao-de-garrafas-em-engradados' ||
-                router.url === '/produtos/verificacao-de-rosca-interna-e-externa' || router.url === '/produtos/qualidade-e-medicao-de-pneus' ||
-                router.url === '/produtos/medicao-de-volume-em-processo-continuo' || router.url === '/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos' ||
-                router.url === '/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto' || router.url === '/produtos/conferencia-de-embalagens' ||
-                router.url === '/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas' || router.url === '/produtos/leitor-de-caracteres-em-qualquer-material' ||
-                router.url === '/produtos/maquina-de-cubagem-pesagem-e-identificacao'; else hideProductsSidemenu">
-
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/quantificacao-de-garrafas-em-engradados" [ngClass]="{'selected':router.url === '/produtos/quantificacao-de-garrafas-em-engradados'}">Quantificação de garrafas em engradados</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/verificacao-de-rosca-interna-e-externa" [ngClass]="{'selected':router.url === '/produtos/verificacao-de-rosca-interna-e-externa'}">Verificação de rosca interna e externa</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/qualidade-e-medicao-de-pneus" [ngClass]="{'selected':router.url === '/produtos/qualidade-e-medicao-de-pneus'}">Qualidade e medição de pneus</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/medicao-de-volume-em-processo-continuo" [ngClass]="{'selected':router.url === '/produtos/medicao-de-volume-em-processo-continuo'}">Medição de volume em processo contínuo</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos" [ngClass]="{'selected':router.url === '/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos'}">Controle de qualidade na fabricação de biscoitos</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto" [ngClass]="{'selected':router.url === '/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto'}">Inspeção de rótulos, tampas e nível de produto</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/conferencia-de-embalagens" [ngClass]="{'selected':router.url === '/produtos/conferencia-de-embalagens'}">Conferência de embalagens</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas" [ngClass]="{'selected':router.url === '/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas'}">Identificação de irregularidades em bocal ou tampas</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/leitor-de-caracteres-em-qualquer-material" [ngClass]="{'selected':router.url === '/produtos/leitor-de-caracteres-em-qualquer-material'}">Leitor de caracteres em qualquer material</a>
-                  </li>
-
-                  <li>
-                    <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/maquina-de-cubagem-pesagem-e-identificacao" [ngClass]="{'selected':router.url === '/produtos/maquina-de-cubagem-pesagem-e-identificacao'}">Máquina de cubagem, pesagem e identificação</a>
-                  </li>
-
-                </ul>
-              </div>
-
-              <ng-template #hideProductsSidemenu>
-                <div class="collapse" id="dashboard-collapse">
-
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/quantificacao-de-garrafas-em-engradados" [ngClass]="{'selected':router.url === '/produtos/quantificacao-de-garrafas-em-engradados'}">Quantificação de garrafas em engradados</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/verificacao-de-rosca-interna-e-externa" [ngClass]="{'selected':router.url === '/produtos/verificacao-de-rosca-interna-e-externa'}">Verificação de rosca interna e externa</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/qualidade-e-medicao-de-pneus" [ngClass]="{'selected':router.url === '/produtos/qualidade-e-medicao-de-pneus'}">Qualidade e medição de pneus</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/medicao-de-volume-em-processo-continuo" [ngClass]="{'selected':router.url === '/produtos/medicao-de-volume-em-processo-continuo'}">Medição de volume em processo contínuo</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos" [ngClass]="{'selected':router.url === '/produtos/controle-de-qualidade-na-fabricacao-de-biscoitos'}">Controle de qualidade na fabricação de biscoitos</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto" [ngClass]="{'selected':router.url === '/produtos/inspecao-de-rotulos-tampas-e-nivel-de-produto'}">Inspeção de rótulos, tampas e nível de produto</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/conferencia-de-embalagens" [ngClass]="{'selected':router.url === '/produtos/conferencia-de-embalagens'}">Conferência de embalagens</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas" [ngClass]="{'selected':router.url === '/produtos/identificacao-de-irregularidades-em-bocal-ou-tampas'}">Identificação de irregularidades em bocal ou tampas</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/leitor-de-caracteres-em-qualquer-material" [ngClass]="{'selected':router.url === '/produtos/leitor-de-caracteres-em-qualquer-material'}">Leitor de caracteres em qualquer material</a>
-                    </li>
-
-                    <li>
-                      <a class="link-body-emphasis d-inline-flex text-decoration-none rounded" routerLink="/produtos/maquina-de-cubagem-pesagem-e-identificacao" [ngClass]="{'selected':router.url === '/produtos/maquina-de-cubagem-pesagem-e-identificacao'}">Máquina de cubagem, pesagem e identificação</a>
-                    </li>
-
-                  </ul>
-                </div>
-              </ng-template>
-
-            </li>
-
-            <li class="mb-1">
-              <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#allset-collapse" aria-expanded="false">
-                Allset
-              </button>
-              <div class="collapse show" id="allset-collapse"
-                *ngIf="router.url === 'https://allset.com.br/nossa-empresa/valores/' || router.url === 'https://allset.com.br/nossa-empresa/como-trabalhamos/' ||
-                router.url === 'https://allset.com.br/clientes/' || router.url === 'https://allset.com.br/contato-e-localizacao/'; else hideAllsetSidemenu">
-
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                  <li>
-                    <a href="https://allset.com.br/nossa-empresa/valores/" routerLink="https://allset.com.br/nossa-empresa/valores/" target="_blank"
-                    [ngClass]="{'selected':router.url === 'https://allset.com.br/nossa-empresa/valores/'}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Valores</a>
-                  </li>
-
-                  <li>
-                    <a href="https://allset.com.br/nossa-empresa/como-trabalhamos/" routerLink="https://allset.com.br/nossa-empresa/como-trabalhamos/"  target="_blank" [ngClass]="{'selected':router.url === 'https://allset.com.br/nossa-empresa/como-trabalhamos/'}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Como trabalhamos</a>
-                  </li>
-
-                  <li>
-                    <a href="https://allset.com.br/clientes/" routerLink="https://allset.com.br/clientes/" target="_blank"
-                    [ngClass]="{'selected':router.url === 'https://allset.com.br/clientes/'}" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Clientes</a>
-                  </li>
-
-                  <li>
-                    <a href="https://allset.com.br/contato-e-localizacao/" routerLink="https://allset.com.br/contato-e-localizacao/" target="_blank"
-                    [ngClass]="{'selected':router.url === 'https://allset.com.br/contato-e-localizacao/'}"  class="link-body-emphasis d-inline-flex text-decoration-none rounded">Contato</a>
-                  </li>
-                </ul>
-
-              </div>
-
-              <ng-template #hideAllsetSidemenu>
-                <div class="collapse" id="allset-collapse">
-
-                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li>
-                      <a href="https://allset.com.br/nossa-empresa/valores/" target="_blank" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Valores</a>
-                    </li>
-
-                    <li>
-                      <a href="https://allset.com.br/nossa-empresa/como-trabalhamos/" target="_blank" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Como trabalhamos</a>
-                    </li>
-
-                    <li>
-                      <a href="https://allset.com.br/clientes/" target="_blank" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Clientes</a>
-                    </li>
-
-                    <li>
-                      <a href="https://allset.com.br/contato-e-localizacao/" target="_blank" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Contato</a>
-                    </li>
-                  </ul>
-
-                </div>
-
-              </ng-template>
-
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</div> -->

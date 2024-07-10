@@ -11,6 +11,12 @@
   }
 }
 
+.product-image {
+  background-size: 102%;
+  background-position-x: center;
+  background-position-y: center;
+}
+
 .header-image {
   background-image: url("/assets/images/header-background.jpeg");
   border-radius: 5px 5px 5px 5px;
