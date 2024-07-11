@@ -18,6 +18,7 @@ import { VerificacaoDeRoscaComponent } from './private/lista-produtos/verificaca
 import { FeedbackComponent } from './private/feedback/feedback/feedback.component';
 import { CadastroComponent } from './public/cadastro/cadastro.component';
 import { AplicacoesConferenciaDeEmbalagensComponent } from './private/aplicacoes/aplicacoes-conferencia-de-embalagens/aplicacoes-conferencia-de-embalagens.component';
+import { AcessoCameraComponent } from './private/acesso-camera/acesso-camera.component';
 
 export const routes: Routes = [
   {
@@ -43,6 +44,7 @@ export const routes: Routes = [
   { path: 'imagens-aprovadas', component: ImagensAprovadasComponent },
   { path: 'imagens-reprovadas', component: ImagensReprovadasComponent },
   { path: 'feedback', component: FeedbackComponent },
+  { path: 'camera', component: AcessoCameraComponent },
   {
     path: '**',
     redirectTo: '/login',
