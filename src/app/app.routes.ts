@@ -43,7 +43,7 @@ export const routes: Routes = [
   { path: 'aplicacoes/conferencia-de-embalagens', component: AplicacoesConferenciaDeEmbalagensComponent },
   { path: 'imagens-aprovadas', component: ImagensAprovadasComponent },
   { path: 'imagens-reprovadas', component: ImagensReprovadasComponent },
-  { path: 'feedback', component: FeedbackComponent },
+  { path: 'allset/feedback', component: FeedbackComponent },
   { path: 'camera', component: AcessoCameraComponent },
   {
     path: '**',
