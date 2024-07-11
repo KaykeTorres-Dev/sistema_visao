@@ -18,26 +18,35 @@ export class ImagensAprovadasComponent {
   urls: any = [];
   fileName: string = '';
   fileCreationData: any;
+  fileContent: any;
 
-  selectFile(file: any) {
-    if (file.target.files && file.target.files.length > 0) {
-      for (let i = 0; i < file.target.files.length; i++) {
-        const element = file.target.files[i];
-        const fileName = element.name;
-        const fileCreationData = element.lastModifiedDate;
+  // selectFile(file: any) {
+  //   if (file.target.files && file.target.files.length > 0) {
+  //     for (let i = 0; i < file.target.files.length; i++) {
+  //       const element = file.target.files[i];
+  //       const fileName = element.name;
+  //       const fileCreationData = element.lastModifiedDate;
 
-        if (element.type.startsWith('image/')) { // Validação opcional do tipo de arquivo
-          const reader = new FileReader();
-          reader.readAsDataURL(element);
-          reader.onload = (events: any) => {
-            const path = events.target.result;
-            this.urls.push({ path, fileName, fileCreationData });
-          };
-        }
-      }
+  //       if (element.type.startsWith('image/')) { // Validação opcional do tipo de arquivo
+  //         const reader = new FileReader();
+  //         reader.readAsDataURL(element);
+  //         reader.onload = (events: any) => {
+  //           const path = events.target.result;
+  //           this.urls.push({ path, fileName, fileCreationData });
+  //         };
+  //       }
+  //     }
+  //   }
+  // }
+
+  selectFile(fileList: any) {
+    let file = fileList.target.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = (events: any) => {
+      this.fileContent = events.target.result;
     }
+    fileReader.readAsText(file);
   }
-
 }
 
 

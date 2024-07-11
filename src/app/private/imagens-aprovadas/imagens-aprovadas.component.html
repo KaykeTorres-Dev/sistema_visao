@@ -10,14 +10,19 @@
       </div>
     </div>
 
-    <iframe src="http://192.168.0.15/pages/hmi/" class="teste"></iframe>
+    <!-- <iframe src="http://192.168.0.15/pages/hmi/" class="teste"></iframe> -->
 
-    <!-- <div class="input-group">
+   <div class="input-group">
       <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" (change)="selectFile($event)">
     </div>
 
+    <div>
+      <h3>File Content</h3>
+      <pre> {{fileContent}} </pre>
+    </div>
 
-    <div *ngIf="urls.length > 0; else approvedImagesEmpty">
+
+    <!-- <div *ngIf="urls.length > 0; else approvedImagesEmpty">
       <div class="card-deck">
         <div class="card align-cards" style="width: 20rem;" *ngFor="let url of urls; let i = index">
           <img class="card-img-top" src="{{url.path}}" alt="Card image cap">

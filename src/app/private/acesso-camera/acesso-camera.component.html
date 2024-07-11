@@ -4,22 +4,16 @@
   <div class="container" *ngIf="showCameraStreaming == false">
 
     <form [formGroup]="form">
-
-
       <h5 class="d-flex justify-content-center mb-5">Conecte-se com a câmera inserindo o endereço ip abaixo</h5>
 
       <div (input)="teste(this.form.get('enderecoIp')?.value)">
-
         <div class="form-floating mb-3">
           <input type="form" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="enderecoIp"  required
           pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           [ngClass]="{ 'is-invalid': form.invalid && this.isFormInvalid == true, 'is-valid': form.valid && this.isFormInvalid == false}">
           <label for="floatingInput">Endereço ip</label>
         </div>
-
       </div>
-
-
     </form>
 
     <div class="mt-5 d-flex justify-content-center">
@@ -27,8 +21,48 @@
     </div>
   </div>
 
-  <div *ngIf="showCameraStreaming == true">
-    <iframe src="http://192.168.0.15/pages/hmi/" class="camera-view"></iframe>
+  <div *ngIf="showCameraStreaming == true" class="row">
+    <div class="camera-container">
+        <iframe src="http://192.168.0.15/pages/hmi/" class="camera-view"></iframe>
+    </div>
+
+    <div class="table-layout">
+
+      <div class="table-title d-flex justify-content-center">
+      <h2>Estatísticas</h2>
+      </div>
+
+      <table class="table table-secondary table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>twitter</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
   </div>
 </main>
 

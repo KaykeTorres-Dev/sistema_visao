@@ -4,6 +4,10 @@
   border-radius: 10px 10px 10px 10px;
 }
 
+.camera-container {
+  width: 74%;
+}
+
 .camera-page-layout {
   margin-top: 96px;
 }
@@ -24,6 +28,22 @@ h5 {
 
 .connect-button {
   color: white;
+}
+
+.table-layout {
+  float: right;
+  width: 25%;
+  background-color: #c5c0c0;
+  border-radius: 10px 10px 10px 10px;
+  height: 83vh;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.table-title {
+  margin-top: 15px;
 }
 
 
