@@ -6,7 +6,7 @@
     <form [formGroup]="form">
       <h5 class="d-flex justify-content-center mb-5">Conecte-se com a câmera inserindo o endereço ip abaixo</h5>
 
-      <div (input)="teste(this.form.get('enderecoIp')?.value)">
+      <div (input)="checkIpAddress(this.form.get('enderecoIp')?.value)">
         <div class="form-floating mb-3">
           <input type="form" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="enderecoIp"  required
           pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
@@ -27,41 +27,57 @@
     </div>
 
     <div class="table-layout">
-
       <div class="table-title d-flex justify-content-center">
-      <h2>Estatísticas</h2>
+        <h2>Estatísticas</h2>
+
+        <div class="select-file-icon" *ngIf="hasFileContent == true">
+          <i class="bi bi-file-earmark-plus"></i>
+        </div>
       </div>
 
-      <table class="table table-secondary table-borderless">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>twitter</td>
-          </tr>
-        </tbody>
-      </table>
+      <div *ngIf="hasFileContent == false">
+        <div>
+          <h5 class="d-flex justify-content-center mt-5">Selecione um arquivo para analisar</h5>
+        </div>
 
+        <div class="input-group mt-5">
+          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" (change)="selectFile($event)">
+        </div>
+      </div>
+
+      <div *ngIf="hasFileContent == true">
+        <div class="table-container">
+          <table class="table table-secondary table-borderless">
+            <!-- <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead> -->
+            <tbody>
+              <tr>
+                <th scope="row"></th>
+                <td>{{fileContent}}</td>
+                <!-- <td>Otto</td>
+                <td>mdo</td> -->
+              </tr>
+              <!-- <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>twitter</td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </main>

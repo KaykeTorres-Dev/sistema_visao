@@ -22,7 +22,7 @@
   box-shadow: 0 3px 10px 3px black;
 }
 
-h5 {
+h5, h2 {
   color: white;
 }
 
@@ -42,8 +42,20 @@ h5 {
   margin-top: 20px;
 }
 
+.table-container {
+  max-width: 100%;
+  overflow-x: scroll;
+  overflow-y: auto;
+}
+
 .table-title {
   margin-top: 15px;
+}
+
+.select-file-icon {
+  left: 60px;
+  position: relative;
+  font-size: 30px;
 }
 
 

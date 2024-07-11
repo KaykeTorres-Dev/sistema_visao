@@ -17,6 +17,8 @@ export class AcessoCameraComponent implements OnInit {
   cameraPath: any;
   form!: FormGroup;
   isFormInvalid: boolean | undefined;
+  fileContent: any;
+  hasFileContent: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -44,7 +46,7 @@ export class AcessoCameraComponent implements OnInit {
     }
   }
 
-  teste(value: string) {
+  checkIpAddress(value: string) {
     if (value.length > 0 && !this.form.valid) {
       this.isFormInvalid = true;
     } else if((value.length == 11 || value.length <= 15) && this.form.valid) {
@@ -52,5 +54,32 @@ export class AcessoCameraComponent implements OnInit {
     } else {
       this.isFormInvalid = undefined;
     }
+  }
+
+  selectFile(fileList: any) {
+    let file = fileList.target.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = (events: any) => {
+      this.fileContent = events.target.result;
+      if (this.fileContent !== undefined) {
+        this.hasFileContent = true;
+      } else {
+        this.hasFileContent = false;
+      }
+      console.log('this.fileContent', this.fileContent );
+    }
+    fileReader.readAsText(file);
+
+
+    // debugger
+
+    // let fileValue = [];
+
+    // fileValue = this.fileContent;
+    // for (let i = 0; i < fileValue.length; i++) {
+    //   const element = fileValue[i];
+    //   console.log('file', element);
+
+    // }
   }
 }
