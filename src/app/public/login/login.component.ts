@@ -16,7 +16,9 @@ export class LoginComponent implements OnInit {
   form!: FormGroup;
   passwordType: string = 'password';
   passwordShow: boolean = false;
-
+  isFormInvalid: boolean | undefined;
+  isEmailInvalid: boolean | undefined;
+  isPasswordInvalid: boolean | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -24,11 +26,10 @@ export class LoginComponent implements OnInit {
     private authService: AuthServiceService
   ) {}
 
-  //TODO: Fazer a validação dos campos visualmente
   ngOnInit(): void {
     this.form = this.fb.group({
       email: new FormControl (null, [Validators.required, Validators.email]),
-      password: new FormControl (null, [Validators.required, Validators.maxLength(8)]),
+      password: new FormControl (null, [Validators.required, Validators.maxLength(6)]),
     });
   }
 
@@ -38,26 +39,55 @@ export class LoginComponent implements OnInit {
     const email = this.form.get('email')?.value;
     const password = this.form.get('password')?.value;
 
-
-
-    if (this.form.get('email')?.value == null && this.form.get('password')?.value == null || this.form.get('email')?.value == "" && this.form.get('password')?.value == "") {
-      this.toastService.showDanger('Preencha todos os campos!');
+    const validationError = this.validateLoginForm(email, password);
+    if (validationError) {
+      this.isFormInvalid = true;
+      this.toastService.showDanger(validationError);
       return;
-
-    } else if (this.form.get('email')?.value == null || this.form.get('email')?.value == "") {
-      this.toastService.showDanger('Preencha o email');
-      return;
-
-    } else if (this.form.get('password')?.value == null || this.form.get('password')?.value == "") {
-      this.toastService.showDanger('Preencha a senha');
-      return;
+    } else {
+      this.isFormInvalid = false;
     }
 
     this.authService.login(adminEmail, adminPassword, email, password);
   }
 
+  validateLoginForm(email: string | null, password: string | null): string | undefined {
+    if ((email === null || email === '') && (password === null || password === '')) {
+      return 'Preencha os campos!';
+    } else if (email === null || email === '') {
+      return 'Preencha o email!';
+    } else if (password === null || password === '') {
+      return 'Preencha a senha!';
+    }
+    return undefined;
+  }
+
+  checkEmail(email: string) {
+    if (email.length > 0 && (email !== null || email !== '')) {
+      if (this.form.get('email')?.valid) {
+        this.isEmailInvalid = false;
+      } else {
+        this.isEmailInvalid = true;
+      }
+    } else {
+      this.isEmailInvalid = false;
+    }
+  }
+
+  checkPassword(password: any) {
+    if (password !== null && password !== '') {
+      if (password.length > 0 && password.length < 6) {
+        this.isPasswordInvalid = true;
+      } else if (password.length == 6) {
+        this.isPasswordInvalid = false;
+      }
+    } else {
+      this.isPasswordInvalid = false;
+    }
+  }
+
+
   togglePassword() {
-    // debugger
     if (this.passwordShow) {
       this.passwordShow = false;
     } else {

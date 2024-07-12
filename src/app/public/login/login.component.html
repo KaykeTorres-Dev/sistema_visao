@@ -10,18 +10,30 @@
         </div>
 
         <form [formGroup]="form">
-          <div class="email-field">
-            <input type="email" class="form-control" placeholder="Email"  formControlName="email" />
-            <div class="invalid-feedback" *ngIf="form.get('email')?.errors?.['required']">Preencha o email.</div>
+          <div class="email-field" (input)="checkEmail(form.get('email')?.value)">
+            <input type="email" class="form-control" placeholder="Email"  formControlName="email" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            [ngClass]="{ 'is-invalid': form.get('email')?.invalid && this.isFormInvalid == true || this.isEmailInvalid == true,
+            'is-valid': form.get('email')?.valid }" />
+            <div class="invalid-feedback" *ngIf="form.get('email')?.errors?.['required'] && this.isFormInvalid == true">Preencha o email</div>
+            <div class="invalid-feedback" *ngIf="this.isEmailInvalid == true">Email inválido</div>
           </div>
 
-          <div class="input-group mb-3">
-            <div *ngIf="passwordShow" class="col-11">
-              <input type="text" class="form-control password-input" placeholder="Senha"  formControlName="password"/>
+          <div class="input-group mb-3" (input)="checkPassword(form.get('password')?.value)">
+            <div *ngIf="!passwordShow" class="col-11">
+              <input type="password" class="form-control password-input" placeholder="Senha"  formControlName="password"
+              [ngClass]="{ 'is-invalid': form.get('password')?.invalid && this.isFormInvalid == true || this.isPasswordInvalid == true,
+              'is-valid': form.get('password')?.valid }"/>
+              <div class="invalid-feedback" *ngIf="form.get('password')?.errors?.['required'] && this.isFormInvalid == true">Preencha a senha</div>
+              <div class="invalid-feedback" *ngIf="this.isPasswordInvalid == true">A senha deve ter 6 caracteres no máximo</div>
             </div>
 
-            <div *ngIf="!passwordShow" class="col-11">
-              <input type="password" class="form-control password-input" placeholder="Senha"  formControlName="password"/>
+            <div *ngIf="passwordShow" class="col-11">
+              <input type="text" class="form-control password-input" placeholder="Senha"  formControlName="password"
+              [ngClass]="{ 'is-invalid': form.get('password')?.invalid && this.isFormInvalid == true || this.isPasswordInvalid == true,
+              'is-valid': form.get('password')?.valid}"/>
+              <div class="invalid-feedback" *ngIf="form.get('password')?.errors?.['required'] && this.isFormInvalid == true">Preencha a senha</div>
+              <div class="invalid-feedback" *ngIf="this.isPasswordInvalid == true">A senha deve ter 6 caracteres no máximo</div>
             </div>
 
             <div class="input-group-append show-password">

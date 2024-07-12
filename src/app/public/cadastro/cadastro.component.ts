@@ -56,13 +56,17 @@ export class CadastroComponent implements OnInit {
   }
 
   passwordMatchCheck(password: any, confirmPassword: any) {
-    if (confirmPassword.length > 0) {
-      if (password !== confirmPassword) {
-        this.toastService.showDanger('As senhas não são iguais!');
-        this.isPasswordMatch = false;
-      } else {
-        this.isPasswordMatch = true;
+    if (password !== null && password !== '') {
+      if (confirmPassword.length > 0) {
+        if (password !== confirmPassword) {
+          this.toastService.showDanger('As senhas não são iguais!');
+          this.isPasswordMatch = false;
+        } else {
+          this.isPasswordMatch = true;
+        }
       }
+    } else {
+      this.toastService.showDanger('Preencha a senha primeiro!');
     }
   }
 
