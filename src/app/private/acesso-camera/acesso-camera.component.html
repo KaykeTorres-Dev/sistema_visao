@@ -31,7 +31,10 @@
         <h2>Estatísticas</h2>
 
         <div class="select-file-icon" *ngIf="hasFileContent == true">
-          <i class="bi bi-file-earmark-plus"></i>
+          <input type="file" id="actual-btn" hidden  (change)="selectFile($event)"/>
+           <label for="actual-btn" class="">
+            <i class="bi bi-file-earmark-plus"></i>
+           </label>
         </div>
       </div>
 
@@ -40,8 +43,9 @@
           <h5 class="d-flex justify-content-center mt-5">Selecione um arquivo para analisar</h5>
         </div>
 
-        <div class="input-group mt-5">
-          <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" (change)="selectFile($event)">
+        <div class="mt-3 d-flex justify-content-center">
+           <input type="file" id="actual-btn" hidden  (change)="selectFile($event)"/>
+           <label for="actual-btn" class="upload-button allset-color-inline">Escolher Arquivo</label>
         </div>
       </div>
 

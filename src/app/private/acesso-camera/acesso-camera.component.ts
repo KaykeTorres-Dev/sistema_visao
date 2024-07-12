@@ -66,7 +66,7 @@ export class AcessoCameraComponent implements OnInit {
       } else {
         this.hasFileContent = false;
       }
-      console.log('this.fileContent', this.fileContent );
+      // console.log('this.fileContent', this.fileContent );
     }
     fileReader.readAsText(file);
 
