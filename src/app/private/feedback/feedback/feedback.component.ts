@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class FeedbackComponent implements OnInit {
   form!: FormGroup;
   isOptionSelected: boolean = false;
-  
+
   constructor(
     private fb: FormBuilder,
     private toastService: ToastService,
@@ -45,7 +45,7 @@ export class FeedbackComponent implements OnInit {
     this.isOptionSelected = optionValue;
   }
 
-  
+
   sendFeedback() {
     if (!this.form.valid || this.isOptionSelected !== true) {
       this.toastService.showDanger('Formulário Inválido!');

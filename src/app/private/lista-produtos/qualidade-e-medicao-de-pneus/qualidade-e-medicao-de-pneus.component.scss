@@ -1,7 +1,3 @@
-.container {
-    max-width: 960px;
-  }
-
   .flex-equal > * {
     flex: 1;
   }
@@ -13,7 +9,6 @@
 
   .header-image {
     background-image: url("/assets/images/qualidade-e-medicao-pneus2.jpg");
-    border-radius: 5px 5px 5px 5px;
     height: 206px;
     padding-top: 27px;
     background-size: cover;
@@ -73,9 +68,3 @@
   .btn-8 {
     margin-top: -32px;
   }
-
-  .card:hover {
-    transition-duration: 150ms;
-    box-shadow: 0 3px 10px 3px black;
-  }
-

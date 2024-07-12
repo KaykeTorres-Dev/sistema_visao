@@ -1,18 +1,20 @@
 <app-dashboard></app-dashboard>
 <main class="px-md-4 camera-page-layout">
 
-  <div class="container" *ngIf="showCameraStreaming == false">
+  <div class="container card-border card-shadow" *ngIf="showCameraStreaming == false">
 
     <form [formGroup]="form">
       <h5 class="d-flex justify-content-center mb-5">Conecte-se com a câmera inserindo o endereço ip abaixo</h5>
 
       <div (input)="checkIpAddress(this.form.get('enderecoIp')?.value)">
+
         <div class="form-floating mb-3">
           <input type="form" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="enderecoIp"  required
           pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           [ngClass]="{ 'is-invalid': form.invalid && this.isFormInvalid == true, 'is-valid': form.valid && this.isFormInvalid == false}">
           <label for="floatingInput">Endereço ip</label>
         </div>
+
       </div>
     </form>
 
@@ -23,10 +25,10 @@
 
   <div *ngIf="showCameraStreaming == true" class="row">
     <div class="camera-container">
-        <iframe src="http://192.168.0.15/pages/hmi/" class="camera-view"></iframe>
+        <iframe src="http://192.168.0.15/pages/hmi/" class="camera-view card-border"></iframe>
     </div>
 
-    <div class="table-layout">
+    <div class="table-layout card-border">
       <div class="table-title d-flex justify-content-center">
         <h2>Estatísticas</h2>
 

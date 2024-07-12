@@ -1,87 +1,80 @@
 
 <div class="container">
-    
-    <div class="justify-content-center d-flex create-user-header">
-        <h1 class="display-3 fw-bold">Crie a sua conta</h1>
-        <h3 class="fw-normal text-muted"></h3>
-    </div> 
+  <div class="justify-content-center d-flex create-user-header">
+    <h1 class="display-3 fw-bold">Crie a sua conta</h1>
+    <h3 class="fw-normal text-muted"></h3>
+  </div>
 
     <div class="container-form">
-        <div class="user-form">
+        <div class="user-form card-border card-shadow">
             <form [formGroup]="form">
                 <div class="form-layout">
 
                     <div class="form-floating mb-4">
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
-                        <label for="email">Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
+                      <label for="email">Email</label>
                     </div>
 
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" id="empresa" placeholder="text" formControlName="empresa">
-                        <label for="empresa">Empresa</label>
+                      <input type="text" class="form-control" id="empresa" placeholder="text" formControlName="empresa">
+                      <label for="empresa">Empresa</label>
                     </div>
 
                     <div class="mb-3">
                         <div class="form-floating mb-4" *ngIf="passwordShow">
-                            <input type="text" class="form-control password-input" id="senha" placeholder="Password" formControlName="senha">
-                            <label for="senha">Senha</label>
+                          <input type="text" class="form-control password-input" id="senha" placeholder="Password" formControlName="senha">
+                          <label for="senha">Senha</label>
                         </div>
 
                         <div class="form-floating mb-4" *ngIf="!passwordShow">
-                            <input type="password" class="form-control password-input" id="senha" placeholder="Password" formControlName="senha">
-                            <label for="senha">Senha</label>
+                          <input type="password" class="form-control password-input" id="senha" placeholder="Password" formControlName="senha">
+                          <label for="senha">Senha</label>
                         </div>
 
                         <div class="input-group-append show-password">
                             <button class="btn btn-outline-secondary" type="button" (click)="togglePassword()">
-
-                            <a *ngIf="passwordShow">
+                              <a *ngIf="passwordShow">
                                 <i class="bi bi-eye"></i>
-                            </a>
+                              </a>
 
-                            <a *ngIf="!passwordShow">
+                              <a *ngIf="!passwordShow">
                                 <i class="bi bi-eye-slash"></i>
-                            </a>
-
+                              </a>
                             </button>
                         </div>
                     </div>
 
-
                     <div class="mb-3">
                         <div (input)="passwordMatchCheck(this.form.get('senha')?.value, this.form.get('confirmarSenha')?.value)">
                             <div class="form-floating mb-4" *ngIf="confirmPasswordShow">
-                                <input type="text" class="form-control password-input" id="confirmarSenha" placeholder="Password" formControlName="confirmarSenha">
-                                <label for="confirmarSenha">Confirmar senha</label>
+                              <input type="text" class="form-control password-input" id="confirmarSenha" placeholder="Password" formControlName="confirmarSenha">
+                              <label for="confirmarSenha">Confirmar senha</label>
                             </div>
-    
+
                             <div class="form-floating mb-4" *ngIf="!confirmPasswordShow">
-                                <input type="password" class="form-control password-input" id="confirmarSenha" placeholder="Password" formControlName="confirmarSenha">
-                                <label for="confirmarSenha">Confirmar senha</label>
+                              <input type="password" class="form-control password-input" id="confirmarSenha" placeholder="Password" formControlName="confirmarSenha">
+                              <label for="confirmarSenha">Confirmar senha</label>
                             </div>
                         </div>
 
                         <div class="input-group-append show-password">
                             <button class="btn btn-outline-secondary" type="button" (click)="toggleConfirmPassword()">
-
-                            <a *ngIf="confirmPasswordShow">
+                              <a *ngIf="confirmPasswordShow">
                                 <i class="bi bi-eye"></i>
-                            </a>
+                              </a>
 
-                            <a *ngIf="!confirmPasswordShow">
+                              <a *ngIf="!confirmPasswordShow">
                                 <i class="bi bi-eye-slash"></i>
-                            </a>
-
+                              </a>
                             </button>
                         </div>
                     </div>
-                    
 
                     <div class="d-flex justify-content-center">
-                        <button class="btn btn-primary allset-color-inline" (click)="createUser()">Criar conta</button>
+                      <button class="btn btn-primary allset-color-inline" (click)="createUser()">Criar conta</button>
                     </div>
                 </div>
-            </form> 
+            </form>
         </div>
     </div>
 </div>
