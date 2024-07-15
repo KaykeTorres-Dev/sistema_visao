@@ -25,15 +25,13 @@
               [ngClass]="{ 'is-invalid': form.get('password')?.invalid && this.isFormInvalid == true || this.isPasswordInvalid == true,
               'is-valid': form.get('password')?.valid }"/>
               <div class="invalid-feedback" *ngIf="form.get('password')?.errors?.['required'] && this.isFormInvalid == true">Preencha a senha</div>
-              <div class="invalid-feedback" *ngIf="this.isPasswordInvalid == true">A senha deve ter 6 caracteres no máximo</div>
             </div>
 
             <div *ngIf="passwordShow" class="col-11">
               <input type="text" class="form-control password-input" placeholder="Senha"  formControlName="password"
               [ngClass]="{ 'is-invalid': form.get('password')?.invalid && this.isFormInvalid == true || this.isPasswordInvalid == true,
-              'is-valid': form.get('password')?.valid}"/>
+              'is-valid': form.get('password')?.valid }"/>
               <div class="invalid-feedback" *ngIf="form.get('password')?.errors?.['required'] && this.isFormInvalid == true">Preencha a senha</div>
-              <div class="invalid-feedback" *ngIf="this.isPasswordInvalid == true">A senha deve ter 6 caracteres no máximo</div>
             </div>
 
             <div class="input-group-append show-password">
