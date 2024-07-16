@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   passwordShow: boolean = false;
   isFormInvalid: boolean | undefined;
   isEmailInvalid: boolean | undefined;
-  isPasswordInvalid: boolean | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -73,19 +72,6 @@ export class LoginComponent implements OnInit {
       this.isEmailInvalid = false;
     }
   }
-
-  checkPassword(password: any) {
-    if (password !== null && password !== '') {
-      if (password.length > 0 && password.length < 6) {
-        this.isPasswordInvalid = true;
-      } else if (password.length == 6) {
-        this.isPasswordInvalid = false;
-      }
-    } else {
-      this.isPasswordInvalid = false;
-    }
-  }
-
 
   togglePassword() {
     if (this.passwordShow) {

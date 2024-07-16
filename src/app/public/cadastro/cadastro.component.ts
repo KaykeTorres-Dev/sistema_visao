@@ -82,7 +82,6 @@ export class CadastroComponent implements OnInit {
         this.isConfirmPasswordEmpty = false;
 
         if (password !== confirmPassword) {
-          console.log('senha', password, 'confirmarSenha', confirmPassword);
           this.isPasswordMatch = false;
 
         } else {
