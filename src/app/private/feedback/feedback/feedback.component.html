@@ -10,13 +10,22 @@
       <form [formGroup]="form">
 
         <div class="form-floating mb-4">
-          <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com" formControlName="email">
-          <label for="floatingInputEmail">Email*</label>
+          <div class="form-floating mb-4" (input)="checkEmail(form.get('email')?.value)">
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email" required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              [ngClass]="{ 'is-invalid': (form.get('email')?.invalid && this.isFormInvalid == true) || this.isEmailInvalid == true,
+              'is-valid': form.get('email')?.valid }"/>
+            <label for="email">Email*</label>
+            <div class="invalid-feedback" *ngIf="form.get('email')?.errors?.['required'] && this.isFormInvalid == true">Preencha o email</div>
+            <div class="invalid-feedback" *ngIf="this.isEmailInvalid == true">Email inválido</div>
+          </div>
         </div>
 
         <div class="form-floating mb-4">
-          <input type="text" class="form-control" id="floatingInputText" placeholder="text" formControlName="empresa">
-          <label for="floatingInputText">Empresa*</label>
+          <input type="text" class="form-control" id="company" placeholder="text" formControlName="company"
+          [ngClass]="{ 'is-invalid': (form.get('company')?.invalid && this.isFormInvalid == true), 'is-valid': form.get('company')?.valid }"/>
+          <label for="company">Empresa*</label>
+          <div class="invalid-feedback" *ngIf="form.get('company')?.errors?.['required'] && this.isFormInvalid == true">Preencha a empresa</div>
         </div>
 
         <div class="mt-4">
@@ -24,33 +33,38 @@
         </div>
 
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="atendimento" formControlName="atendimento"
-            (click)="onAreaFeedbackChange(this.form.get('atendimento')?.value)">
-          <label class="form-check-label" for="atendimento">Atendimento</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="service" formControlName="service"
+            (click)="onAreaFeedbackChange(this.form.get('service')?.value)">
+          <label class="form-check-label" for="service">Atendimento</label>
         </div>
 
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="comunicacao"  formControlName="comunicacao"
-            (click)="onAreaFeedbackChange(this.form.get('comunicacao')?.value)">
-          <label class="form-check-label" for="comunicacao">Comunicação</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="communication"  formControlName="communication"
+            (click)="onAreaFeedbackChange(this.form.get('communication')?.value)">
+          <label class="form-check-label" for="communication">Comunicação</label>
         </div>
 
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="planejamento" formControlName="planejamento"
-            (click)="onAreaFeedbackChange(this.form.get('planejamento')?.value)">
-          <label class="form-check-label" for="planejamento">Planejamento</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="planning" formControlName="planning"
+            (click)="onAreaFeedbackChange(this.form.get('planning')?.value)">
+          <label class="form-check-label" for="planning">Planejamento</label>
         </div>
 
         <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="suporte" formControlName="suporte"
-            (click)="onAreaFeedbackChange(this.form.get('suporte')?.value)">
-          <label class="form-check-label" for="suporte">Suporte</label>
+          <input class="form-check-input" type="checkbox" role="switch" id="support" formControlName="support"
+            (click)="onAreaFeedbackChange(this.form.get('support')?.value)">
+          <label class="form-check-label" for="support">Suporte</label>
         </div>
+
+        <div class="is-invalid-check-box"
+          [ngClass]="{ 'is-invalid-check-box': ((form.get('service')?.invalid || form.get('communication')?.invalid || form.get('planning')?.invalid || form.get('support')?.invalid) && this.isFormInvalid == true || this.isFeedbackInputInvalid == true) }"
+          *ngIf="(form.get('service')?.invalid || form.get('communication')?.invalid || form.get('planning')?.invalid || form.get('support')?.invalid) && this.isFormInvalid == true || this.isFeedbackInputInvalid == true">Selecione pelo menos uma das opções acima!
+      </div>
 
 
         <div class="form-floating mb-4 mt-4">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="comentario"></textarea>
-          <label for="floatingTextarea">Deixe seu comentário aqui</label>
+          <textarea class="form-control" placeholder="Leave a comment here" id="comment" formControlName="comment"></textarea>
+          <label for="comment">Deixe seu comentário aqui</label>
         </div>
 
         <div class="mt-4 mb-4">
@@ -59,54 +73,59 @@
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao1" value="1" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate1" value="1" formControlName="rate">
             <label class="form-check-label" for="inlineRadio1">1</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao2" value="2" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate2" value="2" formControlName="rate">
             <label class="form-check-label" for="inlineRadio2">2</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao3" value="3" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate3" value="3" formControlName="rate">
             <label class="form-check-label" for="inlineRadio3">3</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao4" value="4" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate4" value="4" formControlName="rate">
             <label class="form-check-label" for="inlineRadio4">4</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao5" value="5" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate5" value="5" formControlName="rate">
             <label class="form-check-label" for="inlineRadio5">5</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao6" value="6" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate6" value="6" formControlName="rate">
             <label class="form-check-label" for="inlineRadio6">6</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao7" value="7" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate7" value="7" formControlName="rate">
             <label class="form-check-label" for="inlineRadio7">7</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao"id="avaliacao8" value="8" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate"id="rate8" value="8" formControlName="rate">
             <label class="form-check-label" for="inlineRadio8">8</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao9" value="9" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate9" value="9" formControlName="rate">
             <label class="form-check-label" for="inlineRadio9">9</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="avaliacao" id="avaliacao10" value="10" formControlName="avaliacao">
+            <input class="form-check-input" type="radio" name="rate" id="rate10" value="10" formControlName="rate">
             <label class="form-check-label" for="inlineRadio10">10</label>
           </div>
+
+          <div class="is-invalid-check-box"
+            [ngClass]="{ 'is-invalid-check-box': (form.get('rate')?.invalid && this.isFormInvalid == true), 'is-valid': form.get('rate')?.valid }"
+            *ngIf="form.get('rate')?.errors?.['required'] && this.isFormInvalid == true">Avalie nossos serviços!
+         </div>
         </div>
 
         <div class="d-flex justify-content-center">

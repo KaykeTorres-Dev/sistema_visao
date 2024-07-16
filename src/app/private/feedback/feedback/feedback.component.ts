@@ -15,6 +15,9 @@ import { Router } from '@angular/router';
 export class FeedbackComponent implements OnInit {
   form!: FormGroup;
   isOptionSelected: boolean = false;
+  isEmailInvalid: boolean | undefined;
+  isFormInvalid: boolean | undefined;
+  isFeedbackInputInvalid: boolean | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -26,30 +29,46 @@ export class FeedbackComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       email: new FormControl (null, [Validators.required, Validators.email]),
-      empresa: new FormControl (null, Validators.required),
-      comentario: new FormControl (null),
-      avaliacao: new FormControl (null,  Validators.required),
-      atendimento: new FormControl (false),
-      comunicacao: new FormControl (false),
-      planejamento: new FormControl (false),
-      suporte: new FormControl (false)
+      company: new FormControl (null, Validators.required),
+      comment: new FormControl (null),
+      rate: new FormControl (null,  Validators.required),
+      service: new FormControl (false, Validators.required),
+      communication: new FormControl (false, Validators.required),
+      planning: new FormControl (false, Validators.required),
+      support: new FormControl (false, Validators.required)
     });
+  }
+
+  checkEmail(email: string) {
+    if (email.length > 0 && (email !== null || email !== '')) {
+      if (this.form.get('email')?.valid) {
+        this.isEmailInvalid = false;
+      } else {
+        this.isEmailInvalid = true;
+      }
+    } else {
+      this.isEmailInvalid = false;
+    }
   }
 
   onAreaFeedbackChange(optionValue: any) {
     if (optionValue == true) {
       optionValue = false;
+      this.isFeedbackInputInvalid = true;
     } else if (optionValue == false) {
       optionValue = true;
+      this.isFeedbackInputInvalid = false;
     }
     this.isOptionSelected = optionValue;
   }
 
-
   sendFeedback() {
     if (!this.form.valid || this.isOptionSelected !== true) {
+      this.isFormInvalid = true;
+      this.isOptionSelected == true ?  this.isFeedbackInputInvalid = false : this.isFeedbackInputInvalid = true;
       this.toastService.showDanger('Formulário Inválido!');
     } else {
+      this.isFormInvalid = false;
       this.toastService.showSuccess('Feedback enviado com sucesso!');
       this.router.navigate(['/home']);
     }

@@ -53,10 +53,8 @@ export class LoginComponent implements OnInit {
   validateLoginForm(email: string | null, password: string | null): string | undefined {
     if ((email === null || email === '') && (password === null || password === '')) {
       return 'Preencha os campos!';
-    } else if (email === null || email === '') {
-      return 'Preencha o email!';
-    } else if (password === null || password === '') {
-      return 'Preencha a senha!';
+    } else if ((email === null || email === '') || (password === null || password === ''))  {
+      return 'Formulário inválido!';
     }
     return undefined;
   }
