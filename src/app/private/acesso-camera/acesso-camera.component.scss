@@ -1,18 +1,34 @@
 .camera-view {
   width: 100%;
-  height: 83vh;
+  height: 82vh;
 }
 
 .camera-container {
   width: 74%;
 }
 
+.loading-container {
+  height: 100%;
+}
+
+.show-loading {
+  top: 258px;
+  position: relative;
+  left: 507px;
+  height: 63px;
+  width: 63px;
+}
+
 .camera-page-layout {
   margin-top: 96px;
 }
 
+.reconnect-camera {
+  top: 269px;
+  position: relative;
+}
+
 .container {
-  background-color: gray;
   padding-top: 40px;
   padding-bottom: 40px;
   width: 37%;
@@ -30,7 +46,6 @@ h5, h2 {
 .table-layout {
   float: right;
   width: 25%;
-  background-color: #c5c0c0;
   height: 83vh;
 }
 

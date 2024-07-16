@@ -17,8 +17,12 @@ export class AcessoCameraComponent implements OnInit {
   cameraPath: any;
   form!: FormGroup;
   isFormInvalid: boolean | undefined;
+  isIpAddressInvalid: boolean | undefined;
   fileContent: any;
   hasFileContent: boolean = false;
+  showLoading: boolean = false;
+  loadingTimeout: any;
+  showIhm: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -28,31 +32,58 @@ export class AcessoCameraComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      enderecoIp: new FormControl (null, [Validators.required,
+      ipAddress: new FormControl (null, [Validators.required,
         Validators.pattern("^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")])
     });
   }
 
   connectCamera() {
-    if (!this.form.valid && this.form.get('enderecoIp')?.value == null) {
-      this.toastService.showDanger('Insire o endereço de ip para conectar-se a câmera!');
-    } else if (!this.form.valid) {
-      this.toastService.showDanger('Endereço ip inválido!');
+    if (!this.form.valid && this.form.get('ipAddress')?.value == null || this.form.get('ipAddress')?.value == '') {
+      this.isFormInvalid = true;
+      this.toastService.showDanger('Preencha o campo abaixo!');
     } else {
-      this.toastService.showSuccess('Câmera conectada com sucesso!');
-      const goToUrlCamera = 'http://' + this.form.get('enderecoIp')?.value + '/pages/hmi/';
+      this.isFormInvalid = false;
+      const goToUrlCamera = 'http://' + this.form.get('ipAddress')?.value + '/pages/hmi/';
       this.cameraPath = this.sanitizer.bypassSecurityTrustResourceUrl(goToUrlCamera);
       this.showCameraStreaming = true;
+      this.showLoading = true;
+
     }
+  }
+
+  startLoadingTimeout() {
+    // debugger
+    this.loadingTimeout = setTimeout(() => {
+      this.showLoading = false;
+      this.showIhm = false;
+      this.toastService.showDanger('Não foi possível conectar a câmera. Tente novamente!');
+    }, 5000);
+  }
+
+  onLoad() {
+    // debugger
+    this.startLoadingTimeout();
+    clearTimeout(this.loadingTimeout);
+    this.showLoading = false;
+    this.toastService.showSuccess('Câmera conectada com sucesso!');
+    this.showIhm = true;
+  }
+
+  reloadCameraConnection() {
+    const goToUrlCamera = 'http://' + this.form.get('ipAddress')?.value + '/pages/hmi/';
+    this.cameraPath = this.sanitizer.bypassSecurityTrustResourceUrl(goToUrlCamera);
+    this.showCameraStreaming = true;
+    this.showLoading = true;
+    this.startLoadingTimeout();
   }
 
   checkIpAddress(value: string) {
     if (value.length > 0 && !this.form.valid) {
-      this.isFormInvalid = true;
+      this.isIpAddressInvalid = true;
     } else if((value.length == 11 || value.length <= 15) && this.form.valid) {
-      this.isFormInvalid = false;
+      this.isIpAddressInvalid = false;
     } else {
-      this.isFormInvalid = undefined;
+      this.isIpAddressInvalid = undefined;
     }
   }
 

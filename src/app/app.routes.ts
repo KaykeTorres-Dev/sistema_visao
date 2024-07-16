@@ -44,7 +44,7 @@ export const routes: Routes = [
   { path: 'imagens-aprovadas', component: ImagensAprovadasComponent },
   { path: 'imagens-reprovadas', component: ImagensReprovadasComponent },
   { path: 'allset/feedback', component: FeedbackComponent },
-  { path: 'camera', component: AcessoCameraComponent },
+  { path: 'aplicacoes/camera', component: AcessoCameraComponent },
   {
     path: '**',
     redirectTo: '/login',
