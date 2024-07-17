@@ -67,6 +67,7 @@ export class FeedbackComponent implements OnInit {
       this.isFormInvalid = true;
       this.isOptionSelected == true ?  this.isFeedbackInputInvalid = false : this.isFeedbackInputInvalid = true;
       this.toastService.showDanger('Formulário Inválido!');
+      return;
     } else {
       this.isFormInvalid = false;
       this.toastService.showSuccess('Feedback enviado com sucesso!');
