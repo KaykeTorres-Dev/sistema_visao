@@ -7,17 +7,34 @@
   width: 74%;
 }
 
-.loading-container {
+.show-camera-container {
   height: 100%;
 }
 
-.show-loading {
+.hide-loading-container {
+  height: 98%;
+}
+
+.show-camera {
   top: 258px;
   position: relative;
   left: 507px;
   height: 63px;
   width: 63px;
 }
+
+  .show-loading {
+    top: 43%;
+    position: relative;
+    left: 48%;
+    height: 63px;
+    width: 63px;
+  }
+
+  .loading-container {
+    height: 620px;
+    width: 136%;
+  }
 
 .camera-page-layout {
   margin-top: 96px;
@@ -46,7 +63,7 @@ h5, h2 {
 .table-layout {
   float: right;
   width: 25%;
-  height: 83vh;
+  height: 82vh;
 }
 
 .table {

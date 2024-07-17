@@ -21,8 +21,8 @@ export class AcessoCameraComponent implements OnInit {
   fileContent: any;
   hasFileContent: boolean = false;
   showLoading: boolean = false;
-  loadingTimeout: any;
   showIhm: boolean = false;
+  urlCamera: any;
 
   constructor(
     private fb: FormBuilder,
@@ -37,44 +37,59 @@ export class AcessoCameraComponent implements OnInit {
     });
   }
 
-  connectCamera() {
+  async connectCamera() {
     if (!this.form.valid && this.form.get('ipAddress')?.value == null || this.form.get('ipAddress')?.value == '') {
       this.isFormInvalid = true;
       this.toastService.showDanger('Preencha o campo abaixo!');
-    } else {
-      this.isFormInvalid = false;
-      const goToUrlCamera = 'http://' + this.form.get('ipAddress')?.value + '/pages/hmi/';
-      this.cameraPath = this.sanitizer.bypassSecurityTrustResourceUrl(goToUrlCamera);
-      this.showCameraStreaming = true;
-      this.showLoading = true;
+      return;
+    }
 
+    this.isFormInvalid = false;
+    this.urlCamera = 'http://' + this.form.get('ipAddress')?.value + '/pages/hmi/';
+    this.cameraPath = this.sanitizer.bypassSecurityTrustResourceUrl(this.urlCamera);
+    this.showCameraStreaming = true;
+    this.showLoading = true;
+
+    try {
+      await this.establishCameraConnection();
+      this.showLoading = false;
+      this.showIhm = true;
+    } catch (error) {
+      this.showLoading = false;
+      this.showIhm = false;
     }
   }
 
-  startLoadingTimeout() {
-    // debugger
-    this.loadingTimeout = setTimeout(() => {
-      this.showLoading = false;
-      this.showIhm = false;
-      this.toastService.showDanger('Não foi possível conectar a câmera. Tente novamente!');
-    }, 5000);
+  establishCameraConnection(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      fetch(this.urlCamera).then(data => {
+          if (data) {
+            resolve();
+            this.showSuccessToast();
+          } else {
+            reject();
+            this.showErrorToast();
+          }
+        }).catch(error => {
+          reject(error);
+          this.showErrorToast();
+        });
+    });
   }
 
-  onLoad() {
-    // debugger
-    this.startLoadingTimeout();
-    clearTimeout(this.loadingTimeout);
-    this.showLoading = false;
+
+
+
+  showSuccessToast() {
     this.toastService.showSuccess('Câmera conectada com sucesso!');
-    this.showIhm = true;
   }
 
-  reloadCameraConnection() {
-    const goToUrlCamera = 'http://' + this.form.get('ipAddress')?.value + '/pages/hmi/';
-    this.cameraPath = this.sanitizer.bypassSecurityTrustResourceUrl(goToUrlCamera);
-    this.showCameraStreaming = true;
-    this.showLoading = true;
-    this.startLoadingTimeout();
+  showErrorToast() {
+    this.toastService.showDanger('Não foi possível conectar a câmera. Tente novamente!');
+  }
+
+  async reloadCameraConnection() {
+    await this.connectCamera();
   }
 
   checkIpAddress(value: string) {
@@ -86,6 +101,7 @@ export class AcessoCameraComponent implements OnInit {
       this.isIpAddressInvalid = undefined;
     }
   }
+
 
   selectFile(fileList: any) {
     let file = fileList.target.files[0];
@@ -102,7 +118,6 @@ export class AcessoCameraComponent implements OnInit {
     fileReader.readAsText(file);
 
 
-    // debugger
 
     // let fileValue = [];
 

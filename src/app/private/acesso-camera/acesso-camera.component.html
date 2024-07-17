@@ -9,11 +9,13 @@
       <div (input)="checkIpAddress(this.form.get('ipAddress')?.value)">
 
         <div class="form-floating mb-3">
-          <input type="form" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="ipAddress"  required
+          <input type="form" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="ipAddress" required
           pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
           [ngClass]="{ 'is-invalid': form.invalid && this.isFormInvalid == true, 'is-valid': this.isIpAddressInvalid == false }">
           <label for="floatingInput">Endereço ip</label>
-          <div class="invalid-feedback" *ngIf="form.get('ipAddress')?.errors?.['required'] && this.isFormInvalid == true">Insire o endereço de ip para conectar-se a câmera!</div>
+          <div class="invalid-feedback" *ngIf="form.get('ipAddress')?.errors?.['required'] && this.isFormInvalid == true">
+            Insire o endereço de ip para conectar-se a câmera!
+          </div>
           <div class="invalid-feedback" *ngIf="this.isIpAddressInvalid == true">Endereço ip inválido!</div>
         </div>
 
@@ -28,22 +30,24 @@
   <div *ngIf="showCameraStreaming == true" class="row">
     <div class="camera-container">
 
-      <div class="loading-container card-border card-color">
-        <div class="spinner-border show-loading" role="status" *ngIf="showLoading">
-          <span class="visually-hidden">Loading...</span>
+      <div class="card-border card-color"
+        [ngClass]="{ 'loading-container': showIhm == false, 'hide-loading-container': showIhm == true }">
+
+        <div class="spinner-border" role="status" *ngIf="showLoading == true"
+          [ngClass]="{ 'show-loading': showIhm == false, 'show-camera': showIhm == true }">
         </div>
 
         <div class="d-flex justify-content-center reconnect-camera" *ngIf="showLoading == false && showIhm == false">
           <button type="button" class="btn btn-primary btn-lg allset-color-inline" (click)="reloadCameraConnection()">Reconectar</button>
         </div>
 
-        <div>
-          <iframe src="http://192.168.0.15/pages/hmi/" class="camera-view card-border" (load)="onLoad()"></iframe>
+        <div *ngIf="showLoading == false && showIhm == true">
+          <iframe [src]="cameraPath" class="camera-view card-border"></iframe>
         </div>
       </div>
     </div>
 
-    <div class="table-layout card-border card-color">
+    <div class="table-layout card-border card-color" *ngIf="showIhm == true">
       <div class="table-title d-flex justify-content-center">
         <h2>Estatísticas</h2>
 
