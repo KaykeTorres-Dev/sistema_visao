@@ -4,11 +4,12 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { ToastService } from '../../../toast/toast.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ScrollToTopButtonComponent } from "../../shared/scroll-to-top-button/scroll-to-top-button.component";
 
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [DashboardComponent, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [DashboardComponent, CommonModule, FormsModule, ReactiveFormsModule, ScrollToTopButtonComponent],
   templateUrl: './feedback.component.html',
   styleUrl: './feedback.component.scss'
 })

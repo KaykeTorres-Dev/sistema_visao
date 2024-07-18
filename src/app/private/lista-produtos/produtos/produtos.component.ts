@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { Router } from '@angular/router';
+import { ScrollToTopButtonComponent } from '../../shared/scroll-to-top-button/scroll-to-top-button.component';
 
 @Component({
   selector: 'app-produtos',
   standalone: true,
-  imports: [DashboardComponent],
+  imports: [DashboardComponent, ScrollToTopButtonComponent],
   templateUrl: './produtos.component.html',
   styleUrl: './produtos.component.scss'
 })

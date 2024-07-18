@@ -18,28 +18,28 @@ export class ScrollToTopButtonComponent {
   onWindowScroll() {
     if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
       this.windowScrolled = true;
-    } 
-    else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) { 
+    }
+    else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
       this.windowScrolled = false;
     }
-  } 
-  
-  
+  }
+
+
   scrollToTop() {
     var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     var speed = 50;
-  
+
     function animate() {
       if (scrollTop > 0) {
         scrollTop -= speed;
-        speed *= 0.9;
+        speed *= 1;
         window.scrollTo(0, scrollTop);
         setTimeout(animate, 10);
       } else {
         window.scrollTo(0, 0);
       }
     }
-  
+
     animate();
   }
 }
