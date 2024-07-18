@@ -68,3 +68,11 @@
 .card-color {
   background-color: #a6a1a1;
 }
+
+.logout-button {
+  bottom: 685px;
+  display: flex;
+  justify-content: end;
+  z-index: 9999;
+  position: relative;
+}

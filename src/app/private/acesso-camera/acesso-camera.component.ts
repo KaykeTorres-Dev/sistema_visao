@@ -77,9 +77,6 @@ export class AcessoCameraComponent implements OnInit {
     });
   }
 
-
-
-
   showSuccessToast() {
     this.toastService.showSuccess('Câmera conectada com sucesso!');
   }
@@ -102,7 +99,6 @@ export class AcessoCameraComponent implements OnInit {
     }
   }
 
-
   selectFile(fileList: any) {
     let file = fileList.target.files[0];
     let fileReader = new FileReader();
@@ -113,19 +109,11 @@ export class AcessoCameraComponent implements OnInit {
       } else {
         this.hasFileContent = false;
       }
-      // console.log('this.fileContent', this.fileContent );
     }
     fileReader.readAsText(file);
+  }
 
-
-
-    // let fileValue = [];
-
-    // fileValue = this.fileContent;
-    // for (let i = 0; i < fileValue.length; i++) {
-    //   const element = fileValue[i];
-    //   console.log('file', element);
-
-    // }
+  refreshFile() {
+    console.log('clicou');
   }
 }

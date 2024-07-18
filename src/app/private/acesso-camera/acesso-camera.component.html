@@ -57,6 +57,10 @@
             <i class="bi bi-file-earmark-plus select-other-file"></i>
            </label>
         </div>
+
+        <div class="select-file-icon refresh-file-icon" *ngIf="hasFileContent == true">
+          <i class="bi bi-arrow-clockwise select-other-file"  (click)="refreshFile()"></i>
+        </div>
       </div>
 
       <div *ngIf="hasFileContent == false">
@@ -73,32 +77,11 @@
       <div *ngIf="hasFileContent == true">
         <div class="table-container">
           <table class="table table-secondary table-borderless">
-            <!-- <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead> -->
             <tbody>
               <tr>
                 <th scope="row"></th>
                 <td>{{fileContent}}</td>
-                <!-- <td>Otto</td>
-                <td>mdo</td> -->
               </tr>
-              <!-- <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>twitter</td>
-              </tr> -->
             </tbody>
           </table>
         </div>
