@@ -26,3 +26,12 @@ nav {
 .dropdown:hover>.dropdown-menu {
   display: block;
 }
+
+a:hover {
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 0;
+  z-index: 99999;
+}
