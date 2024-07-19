@@ -1,31 +1,30 @@
+body {
+  overflow: hidden;
+  margin: 0;
+}
+
 .user-form {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-top: 50px;
+  width: 44%; /* Can keep the width here if needed */
 }
 
 :host {
-  background-color: #305977;
-  display: flex;
-  height: 737px;
+  background-image: url("/assets/images/signup.webp");
+  background-size: cover;
+  display: inline-block;
+  height: 100vh; /* Use viewport height for full screen */
+  width: 100vw; /* Use viewport width for full screen */
 }
 
 h1 {
   color: white;
 }
 
-.create-user-header {
-  margin-top: 50px;
-}
-
 .form-layout {
   margin-right: 16px;
   margin-left: 16px;
-}
-
-.container-form {
-  width: 50%;
-  margin-left: 330px;
 }
 
 .show-password {
@@ -50,3 +49,6 @@ h1 {
   width: 92%;
 }
 
+.main-signup {
+  padding-top: 35px;
+}

@@ -1,17 +1,33 @@
 .container {
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-top: 30px;
-  width: 40%;
+  margin-top: 16px;
+  width: 40%; /* Can keep the width here if needed */
   margin-bottom: 30px;
 }
 
 .header-image {
-  background-image: url("/assets/images/feedback.jpeg");
   height: 150px;
   padding-top: 27px;
 }
 
 h1 {
   color: white;
+}
+
+:host {
+  background-image: url("/assets/images/feedback.jpeg");
+  background-size: cover;
+  display: block;
+  height: 100%;
+}
+
+.main-feedback {
+  padding-top: 63px;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
 }
