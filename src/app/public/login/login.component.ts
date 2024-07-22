@@ -32,9 +32,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {
-    const adminEmail = 'admin@admin.com';
-    const adminPassword = '321321';
+  async login() {
     const email = this.form.get('email')?.value;
     const password = this.form.get('password')?.value;
 
@@ -47,7 +45,7 @@ export class LoginComponent implements OnInit {
       this.isFormInvalid = false;
     }
 
-    this.authService.login(adminEmail, adminPassword, email, password);
+    await this.authService.login(email, password);
   }
 
   validateLoginForm(email: string | null, password: string | null): string | undefined {

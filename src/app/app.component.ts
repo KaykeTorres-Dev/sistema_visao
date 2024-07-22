@@ -13,7 +13,7 @@ registerLocaleData(localePT);
   imports: [
     RouterOutlet,
     NgbModule,
-    ToastComponent
+    ToastComponent,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },

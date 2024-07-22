@@ -9,6 +9,14 @@
         <form [formGroup]="form">
           <div class="form-layout">
 
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control" id="name" placeholder="name@example.com" formControlName="name" required
+                [ngClass]="{ 'is-invalid': (form.get('name')?.invalid && this.isFormInvalid == true) || this.isNameInvalid == true, 
+                'is-valid': form.get('name')?.valid }"/>
+              <label for="name">Nome</label>
+              <div class="invalid-feedback" *ngIf="form.get('name')?.errors?.['required'] && this.isFormInvalid == true">Preencha o nome</div>
+            </div>
+
             <div class="form-floating mb-4" (input)="checkEmail(form.get('email')?.value)">
               <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email" required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [ngClass]="{ 'is-invalid': (form.get('email')?.invalid && this.isFormInvalid == true)
