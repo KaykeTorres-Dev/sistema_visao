@@ -1,6 +1,6 @@
 # SistemaVisao
 
-Este projeto foi realizado utilizando Html, CSS, Javascript, Bootstrap 5, Typescript e [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.5.
+Este projeto foi realizado utilizando Html, CSS, Bootstrap 5, Javascript, Typescript e [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.5.
 
 * <a href="https://code.visualstudio.com/">Visual Studio Code</a>;
 * <a>Angular 17.3.5</a>;
