@@ -2,6 +2,7 @@
 
 Este projeto foi realizado utilizando Html, CSS, Bootstrap 5, Javascript, Typescript e [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.5.
 
+## Requisitos:
 * <a href="https://code.visualstudio.com/">Visual Studio Code</a>;
 * <a>Angular 17.3.5</a>;
 * <a href="https://nodejs.org/pt">NodeJs</a>;
