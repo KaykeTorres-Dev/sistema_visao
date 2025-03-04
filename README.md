@@ -12,23 +12,28 @@ Este projeto foi realizado utilizando Html, CSS, Bootstrap 5, Javascript, Typesc
 git clone https://github.com/KaykeTorres-Dev/sistema_visao.git
 ```
 
-## Para instalar o Angular CLI, execute:
+## Para instalar o Angular, execute:
 ```
 npm install -g @angular/cli@17.3.5
 ```
+
+```
+npm install --save-dev @angular-devkit/build-angular@17.3.5
+```
+
 
 ## Verifique se foi instalado corretamente:
 ```
 ng version
 ```
 
-## Utilizar a versão do nvm mais atual:
+## Utilize a versão do nvm 22.13.0
 ```
-nvm use v
+nvm use v22.13.0
 ```
 
 
-## Rodar o servidor local:
+## Rode o servidor local:
 ```
 ng serve
 ```
