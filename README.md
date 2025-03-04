@@ -6,6 +6,7 @@ Este projeto foi realizado utilizando Html, CSS, Bootstrap 5, Javascript, Typesc
 * <a href="https://code.visualstudio.com/">Visual Studio Code</a>;
 * <a>Angular 17.3.5</a>;
 * <a href="https://nodejs.org/pt">NodeJs</a>;
+* <a>Nvm 22.13.0</a>;
 
 ## Clone o repositório:
  ```
