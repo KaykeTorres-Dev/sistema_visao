@@ -24,7 +24,7 @@ export class AuthServiceService {
       const login = await this.crudService.post('login-user', loginUser);
 
       if (login) {
-        this.toastService.showSuccess('Login efetuado com sucesso');
+        this.toastService.showSuccess('Login efetuado com sucesso!');
         this.router.navigate(['home']);
       } 
     } catch (error: any) {

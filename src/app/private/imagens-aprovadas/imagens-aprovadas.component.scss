@@ -15,14 +15,14 @@
 }
 
 .card {
-  flex: 0 0 20%; /* Ocupa 20% da largura disponível */
-  margin: 10px; /* Espaçamento entre os cards */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+  flex: 0 0 20%;
+  margin: 10px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 @media (max-width: 768px) {
   .card {
-    flex: 0 0 50%; /* Ocupa 50% da largura disponível em telas menores */
+    flex: 0 0 50%; 
   }
 }
 

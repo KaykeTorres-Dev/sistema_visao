@@ -7,15 +7,15 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   margin-top: 50px;
-  width: 44%; /* Can keep the width here if needed */
+  width: 44%; 
 }
 
 :host {
   background-image: url("/assets/images/signup.webp");
   background-size: cover;
   display: inline-block;
-  height: 100vh; /* Use viewport height for full screen */
-  width: 100vw; /* Use viewport width for full screen */
+  height: 100vh; 
+  width: 100vw;
 }
 
 h1 {
