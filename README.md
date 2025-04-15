@@ -33,6 +33,10 @@ ng version
 nvm use v22.13.0
 ```
 
+## Caso tenha problemas para rodar devido a falta da dependência @angular-devkit/build-angular, utilize:
+```
+npm i
+```
 
 ## Rode o servidor local:
 ```
